@@ -77,11 +77,13 @@ function widgetsWithVariable(variableName, widgetVariables) {
 }
 
 function updateWidget(widget, variable, value) {
+    console.log(widget.x, variable, value)
     var itemType = itemTypes[widget.type];
     for (var textField of itemType.textFields) {
         widget[textField] = widget[textField].replace(variableSign + variable, value)
     }
     widget.sync()
+    console.log(widget, variable, value)
 }
 
 async function setVariables() {
@@ -100,6 +102,7 @@ async function setVariables() {
             try {
                 var widget = await board.getById(widgetId);
                 console.log(widgetId + " widget set");
+                console.log(widget.x)
                 updateWidget(widget, key, value);
             } catch (error) {
                 console.log(error);

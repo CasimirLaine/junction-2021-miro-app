@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       
-    <script type="module" crossorigin src="/assets/app.9905197e.js"></script>
-    <link rel="modulepreload" href="/assets/table.097b3783.js">
-    <link rel="modulepreload" href="/assets/items.ee7c4149.js">
+    <script type="module" crossorigin src="/assets/app.27afb307.js"></script>
+    <link rel="modulepreload" href="/assets/table.e13f2681.js">
+    <link rel="modulepreload" href="/assets/items.a8218602.js">
     <link rel="stylesheet" href="/assets/table.116a5b33.css">
-    <link rel="stylesheet" href="/assets/app.8fbc422c.css">
+    <link rel="stylesheet" href="/assets/app.08d4a0af.css">
   </head>
   <body>
     <button onclick="console.log('output', test())">test</button>
@@ -32,18 +32,41 @@
           </tr>
         </thead>
         <tbody id="vtable-body">
-          <tr id="testRow1" scope="row">
-            <td onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)">edit</button></td>
-            <td scope="col">10</td>
-            <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td>
-          </tr>
+          <!-- <tr id="testRow1" scope="row"> --> -->
+            <!-- <td onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)">edit</button></td> -->
+            <!-- <td scope="col">10</td> -->
+            <!-- <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td> -->
+          <!-- </tr> -->
+
         </tbody>
       </table>
     </div>
     <button id="b1" class="float-right btn btn-secondary btn-sm" onclick="showVariableForm()">
       Add new variable
     </button>
-    
+    <!-- EDIT VARIABLE FORM -->
+    <div id="editVariableForm">
+    <form >
+      <table class="table table-hover table-dark">
+        <tr>
+          <td align="right">variable</td>
+          <td align="left" style="width:70%;"><input id="varedit" type="text" style="width: 100%;" name="first" /></td>
+        </tr>
+        <tr>
+          <td align="right">value</td>
+          <td align="left" style="width:70%;"><input id="valedit" type="text" style="width: 100%;" name="last" /></td>
+        </tr>
+      </table>
+      <button  class="float-right btn btn-secondary btn-sm" onclick="saveEdit()">
+        Save edit
+        </button>
+      <button style="margin-right:1em;"  class="float-right btn btn-secondary btn-sm" onclick="closeEditVariable()">
+        Cancel edit
+        </button>
+      </form>
+    </div>
+    <!-- /EDIT VARIABLE FORM -->
+
     <div id="input-field" style="display:None">
 <form>
   <table class="table table-hover table-dark">

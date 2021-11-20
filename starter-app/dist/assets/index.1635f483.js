@@ -1,0 +1,1 @@
+import{_ as a}from"./table.e13f2681.js";import"./vendor.05a6ae7d.js";!async function(){await miro.board.ui.on("icon:click",(async()=>{await miro.board.ui.openPanel({pageUrl:"app.html"})}))}(),a((()=>import("./items.a8218602.js")),[]);
