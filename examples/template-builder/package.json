@@ -9,5 +9,8 @@
   "devDependencies": {
     "vite": "2.5.0",
     "vite-plugin-mkcert": "1.5.1"
+  },
+  "engines": {
+    "node": "16.13.0"
   }
 }
