@@ -7,9 +7,10 @@ async function init() {
     variable: "variableName",
     value: "variableValue"
   }
+  console.log('board in app.js', board)
   await board.setAppData("variables", data)
   const appdata = await board.getAppData("variables")
-  console.log(appdata)
+  console.log('appdata', appdata)
 
   printFunction()
   const stickyNote = await board.createStickyNote({

@@ -1,5 +1,5 @@
 const promise = import('./items.js')
-const board = window.miro
+const { board } = window.miro
 let id = 0
 let data = {}
 let variableNames
@@ -71,7 +71,12 @@ function test(){
 
 function saveVariables() {
     console.log(data)
-    // await board.setAppData("variables", data)
-    // const appdata = await board.getAppData("variables")
-    // console.log(appdata)
+    console.log('board', board)
+    board.setAppData("variables", data).then(d=>{
+        var appdata = board.getAppData("variables").then(
+            d=> {
+                console.log('appdata set', d)
+            }
+        )
+    })
 }
