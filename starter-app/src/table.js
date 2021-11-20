@@ -23,7 +23,7 @@ window.appendToTable = function appendToTable(variableName, variableValue) {
     document.getElementById("valinput").value = variableValue
 
 
-    editButton = '<button id="' + editId + '" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
+    let editButton = '<button id="' + editId + '" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id=' + id + '><td onmouseover="toggleVisibility(\'' + editId + '\')" onmouseout="toggleVisibility(\'' + editId + '\')" scope="col">' + variableName + " " + editButton + '</td><td>' + variableValue + '</td><td scope="col"><button onclick="removeRow(' + id + ')" class="xbutton">✕</button></td></tr>';
 }
