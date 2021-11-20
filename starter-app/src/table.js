@@ -47,8 +47,10 @@ window.showVariableForm = function showVariableForm() {
 
 window.removeRow = function removeRow(id) {    
     if(typeof editId === 'string'){
+        window.localStorage.removeItem(id)
         document.getElementById(id).remove();
     } else {
+        window.localStorage.removeItem(id.id)
         document.getElementById(id.id).remove();
     }
 }
@@ -75,8 +77,9 @@ window.toggleInvisible = function toggleInvisible(editId) {
 
 window.createTable = async function createTable() {
     var variables = {}
-    var variableTable = window.variables
+    var variableTable = window.localStorage
     console.log(variableTable)
+    
     for (variableName in variableTable) {
         variables[variableName] = variableTable[variableName]
     }
@@ -135,13 +138,10 @@ window.saveVariable = async function saveVariable() {
 }
 
 export function periodic() {
-    var variables = window.variables;
-    console.log(variables)
-    console.log(window)
+    var variables = window.localStorage;
     if(variables !== undefined && variables !== null){
-        variables.forEach(element => {
-            console.log(element)
-        });
+        Object.keys(localStorage).forEach(function(key){
+            setVariables(key)
+         });
     }
-    console.log("asddd")
 }

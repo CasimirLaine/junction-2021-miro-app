@@ -94,10 +94,9 @@ async function updateWidget(widget, variable, value) {
 
 async function setVariables(variable) {
     var widgetVariables = await findVariables();
-    var variables = window.variables;
+    var variables = window.localStorage;
     var widgetIds = widgetsWithVariable(variable, widgetVariables);
     var value = variables[variable];
-    console.log(value)
     if (value == null || value == undefined || value == "") {
         return
     }
