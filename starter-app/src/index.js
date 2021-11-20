@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { mistyrose } from 'color-name';
 const { board } = window.miro;
-import * as table from './table'
+import { periodic } from './table.js'
 
 async function init() {
   await miro.board.ui.on("icon:click", async () => {
@@ -21,17 +21,8 @@ const options = {
     }
 };
 
-
-// setInterval(async function(){ 
-//   const Appdata = await board.getAppData("variables")
-//   console.log(Appdata)
-
-//   axios.request(options).then(function (response) {
-//     console.log(response.data);
-//     console.log(response.data.data.map(value => value.data))
-//   }).catch(function (error) {
-//     console.error(error);
-//   });
-// }, 3000);
-
+ setInterval(async function(){ 
+   console.log("indes.js")
+    periodic();
+    }, 3000);
 init();

@@ -77,8 +77,7 @@ function widgetsWithVariable(variableName, widgetVariables) {
     return widgetIds;
 }
 
-function updateWidget(widget, variable, value) {
-    console.log(widget.x, variable, value)
+async function updateWidget(widget, variable, value) {
     var itemType = itemTypes[widget.type];
     const width = widget.width;
     const height = widget.height;
@@ -87,13 +86,15 @@ function updateWidget(widget, variable, value) {
     }
     widget.width = width;
     widget.height = height;
-    widget.sync()
-    console.log(widget, variable, value)
+    
+    await widget.sync();
 }
+
+
 
 async function setVariables(variable) {
     var widgetVariables = await findVariables();
-    var variables = await board.getAppData('variables');
+    var variables = window.variables;
     var widgetIds = widgetsWithVariable(variable, widgetVariables);
     var value = variables[variable];
     console.log(value)
