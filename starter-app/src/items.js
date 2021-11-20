@@ -1,5 +1,6 @@
 const { board } = window.miro;
 const variableSign = "$"
+const escapedVariableSign = "\$"
 const regexPattern = "[" + variableSign + "]{1}[a-zA-Z0-9äöüÄÖÜ]+";
 
 const itemTypes = {
@@ -78,35 +79,32 @@ function widgetsWithVariable(variableName, widgetVariables) {
 
 function updateWidget(widget, variable, value) {
     var itemType = itemTypes[widget.type];
+    const width = widget.width;
+    const height = widget.height;
     for (var textField of itemType.textFields) {
-        widget[textField] = widget[textField].replace(variableSign + variable, value)
+        widget[textField] = widget[textField].replace(escapedVariableSign + variable, value)
     }
+    widget.width = width;
+    widget.height = height;
     widget.sync()
 }
 
-async function setVariables() {
-    console.log('setting variables')
+async function setVariables(variable) {
     var widgetVariables = await findVariables();
-    console.log("Printing widgets");
-    console.log(widgetVariables);
     var variables = await board.getAppData('variables');
-    console.log("Printing variables");
-    console.log(variables);
-    for (var key in variables) {
-        console.log(key + " variable set");
-        var widgetIds = widgetsWithVariable(key, widgetVariables);
-        for (var widgetId of widgetIds) {
-            var value = variables[key];
-            try {
-                var widget = await board.getById(widgetId);
-                console.log(widgetId + " widget set");
-                updateWidget(widget, key, value);
-            } catch (error) {
-                console.log(error);
-            }
+    var widgetIds = widgetsWithVariable(variable, widgetVariables);
+    var value = variables[variable];
+    if (value == null || value == undefined) {
+        return
+    }
+    for (var widgetId of widgetIds) {
+        try {
+            var widget = await board.getById(widgetId);
+            updateWidget(widget, variable, value);
+        } catch (error) {
+            console.log(error);
         }
     }
-    board.sync()
 }
 
 export { findVariables, setVariables };
