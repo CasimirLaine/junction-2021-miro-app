@@ -23,12 +23,13 @@ window.appendToTable = function appendToTable(variableName, variableValue) {
     element.style.display = 'none'
     document.getElementById("varinput").value = variableName
     document.getElementById("valinput").value = variableValue
-    var editButton = '<button onclick="editVariable(' + id + ')" id="' + editId + '" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisible(' + editId + ')">edit</button>'
+    var editButton = '<button onclick="editVariable(' + id + ')" id="' + editId + '" style="float:right; display:inline;" class="editButton xbutton" onmouseover="toggleVisible(' + editId + ')">edit</button>'
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id=' + id + '>\
                             <td onmouseover="toggleVisible(\''+ editId + '\')" onmouseout="toggleInvisible(\'' + editId + '\')" scope="col">\
-                                <div style="margin: 0;" id="'+ varId + '">' + variableName + "</div> " + editButton + '</td><td id="' + valId + '">' + variableValue + '\
+                                <div style="margin: 0;" id="'+ varId + '">' + variableName + "</div> " + '</td><td id="' + valId + '">' + variableValue + '\
                             </td>\
+                            <td>' + editButton + '</td>\
                             <td scope="col">\
                                 <button onclick="removeRow('+ id + ')" class="xbutton">✕</button>\
                             </td>\
