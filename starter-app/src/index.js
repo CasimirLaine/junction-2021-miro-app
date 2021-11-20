@@ -1,5 +1,6 @@
 import axios from 'axios'
 const { board } = window.miro;
+import { periodic } from './table.js'
 
 async function init() {
   await miro.board.ui.on("icon:click", async () => {
@@ -17,4 +18,9 @@ const options = {
     Authorization: 'Bearer Vqzj_BDeXukWefLeX3uWguYSyeg'
     }
 };
+
+ setInterval(async function(){ 
+   console.log("indes.js")
+    periodic();
+    }, 3000);
 init();

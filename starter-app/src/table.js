@@ -135,3 +135,14 @@ window.saveVariable = async function saveVariable() {
     window.variables = dictionary
     setVariables(key)
 }
+
+export function periodic() {
+    var variables = window.variables;
+    console.log(variables)
+    if(variables !== undefined && variables !== null){
+        variables.forEach(element => {
+            console.log(element)
+        });
+    }
+    console.log("asddd")
+}
