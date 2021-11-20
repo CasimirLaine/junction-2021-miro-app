@@ -19,6 +19,9 @@
   <body>
     
   <style type="text/css">
+    body {
+      background-color: black;
+    }
     .var {
       width: 100%;
       
@@ -40,7 +43,7 @@
           <th scope="col">Value</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="vtable-body">
         <tr scope="row">
           <td scope="col">x</td>
           <td scope="col">10</td>
@@ -57,19 +60,18 @@
     </button>
     
     <div id="input-field" style="display:None">
-      <div class="ui labeled input">
-        <div class="ui label" style="text-align: right; display:inline-block;">
-          variable
-        </div>
-        <input id="varinput" type="text"  style="width:70%; border: 1px solid black; height: 80%;">
-      </div>
-     
-      <div class="ui labeled input" style="margin-bottom:15px">
-        <div class="ui label" style="text-align: right; display:inline-block;">
-          value
-        </div>
-        <input id="valinput" type="text"  style="width:70%; border: 1px solid black; height: 80%;">
-      </div>
+<form>
+  <table class="table table-hover table-dark">
+    <tr>
+      <td align="right">variable</td>
+      <td align="left" style="width:70%;"><input type="text" style="width: 100%;" name="first" /></td>
+    </tr>
+    <tr>
+      <td align="right">value</td>
+      <td align="left" style="width:70%;"><input type="text" style="width: 100%;" name="last" /></td>
+    </tr>
+  </table>
+</form>
 
       <!-- <div class="var"><p>variable</p> <input id="varinput" type="text"> </div> -->
       <!-- <div>value <input id="valinput" type="text" > </div> -->

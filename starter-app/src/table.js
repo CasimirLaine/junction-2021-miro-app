@@ -13,7 +13,7 @@ function appendToTable(){
     document.getElementById("varinput").value = ""
     document.getElementById("valinput").value = ""
 
-    var element = document.getElementById("vtable")
+    var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr><td>' + variable + '</td><td>' + value + '</td></tr>';
 }
 
@@ -21,5 +21,5 @@ function showVariableForm(){
     var button = document.getElementById("b1");
     button.style.display = 'None'
     var element = document.getElementById("input-field");
-    element.style.display = 'inline'
+    element.style.display = 'inline-block'
 }
