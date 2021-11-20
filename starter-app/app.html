@@ -30,7 +30,7 @@
         </thead>
         <tbody id="vtable-body">
           <tr id="testRow1" scope="row">
-            <td id="vartestrow" onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)" onclick="editVariable('testRow1', 'test', 'test')">edit</button></td>
+            <td id="vartestrow" onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)" onclick="toggleVisibility('edit-field')">edit</button></td>
             <td id="valtestrow" scope="col">10</td>
             <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td>
           </tr>
@@ -41,23 +41,45 @@
       Add new variable
     </button>
     <div id="input-field" style="display:None">
-<form>
-  <table class="table table-hover table-dark">
-    <tr>
-      <td align="right">variable</td>
-      <td align="left" style="width:70%;"><input id="varinput" type="text" style="width: 100%;" name="first" /></td>
-    </tr>
-    <tr>
-      <td align="right">value</td>
-      <td align="left" style="width:70%;"><input id="valinput" type="text" style="width: 100%;" name="last" /></td>
-    </tr>
-  </table>
-</form>
+      <form>
+        <table class="table table-hover table-dark">
+          <tr>
+            <td align="right">variable</td>
+            <td align="left" style="width:70%;"><input id="varinput" type="text" style="width: 100%;" name="first" /></td>
+          </tr>
+          <tr>
+            <td align="right">value</td>
+            <td align="left" style="width:70%;"><input id="valinput" type="text" style="width: 100%;" name="last" /></td>
+          </tr>
+        </table>
+      </form>
 
       <!-- <div class="var"><p>variable</p> <input id="varinput" type="text"> </div> -->
       <!-- <div>value <input id="valinput" type="text" > </div> -->
 
       <div><button  class="float-right btn btn-secondary btn-sm" onclick="saveVariable(); appendToTable()">Add variable</button></div>
+      <div><button style="margin-right: 1em;"  class="float-right btn btn-secondary btn-sm" onclick="toggleVisibility('input-field')">Cancel</button></div>
+    </div>
+
+    <div id="edit-field" style="display:none;">
+      <br>
+      <br>
+      <p style="color: white;">Edit variable</p>
+      <form id="editFormField">
+        <table class="table table-hover table-dark">
+          <tr>
+            <td align="right">variable</td>
+            <td align="left" style="width:70%;"><input id="varedit" type="text" style="width: 100%;" name="first" /></td>
+          </tr>
+          <tr>
+            <td align="right">value</td>
+            <td align="left" style="width:70%;"><input id="valedit" type="text" style="width: 100%;" name="last" /></td>
+          </tr>
+        </table>
+      </form>
+
+      <div><button  class="float-right btn btn-secondary btn-sm" onclick="saveEdit()">Save</button></div>
+      <div><button style="margin-right: 1em;"  class="float-right btn btn-secondary btn-sm" onclick="toggleVisibility('edit-field')">Cancel</button></div>
     </div>
 
     <script type="module" src="/src/app.js"></script>
