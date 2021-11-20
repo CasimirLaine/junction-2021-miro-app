@@ -50,15 +50,18 @@ function findVariablesInObject(item, itemType) {
 }
 
 async function findVariables() {
-    var variables = new Array();
+    var widgetVariables = {};
     for (var itemType in itemTypes) {
         let boardItems = await board.get({
             type: [itemType]
         });
         for (var boardItem of boardItems) {
-            variables.push(...findVariablesInObject(boardItem, itemTypes[itemType]))
+            const foundVariables = findVariablesInObject(boardItem, itemTypes[itemType]);
+            if (foundVariables?.length) {
+                widgetVariables[boardItem.id] = foundVariables;
+            }
         }
     }
-    return variables;
+    return widgetVariables;
 }
 export { findVariables };
