@@ -30,6 +30,8 @@ window.appendToTable = function appendToTable(variableName, variableValue) {
 
 
 window.showVariableForm = function showVariableForm() {
+    document.getElementById("varinput").value = ""
+    document.getElementById("valinput").value = ""
     var button = document.getElementById("b1");
     button.style.display = 'none'
     var element = document.getElementById("input-field");
