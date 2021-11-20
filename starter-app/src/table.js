@@ -2,6 +2,8 @@ const promise = import('./items.js')
 const { board } = window.miro
 let id = 0
 let data = {}
+// dictionary contains saved variables
+var dictionary = {}
 let variableNames
 
 function printFunction() {
@@ -31,8 +33,8 @@ function appendToTable() {
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id='+id+'><td onmouseover="toggleVisibility(\''+editId+'\')" onmouseout="toggleVisibility(\''+editId+'\')" scope="col">' + variable + " " + editButton +'</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
     data[variable] = value
-    saveVariables()
 }
+
 
 function showVariableForm() {
     var button = document.getElementById("b1");
@@ -108,19 +110,32 @@ function saveEdit(id) {
     valElement.innerHTML = valedit.innerHTML
 }
 
-function saveVariables() {
-    console.log(data)
-    console.log('board', board)
-    board.setAppData("variables", data).then(d => {
-        var variableTable = board.getAppData("variables").then(
-            d => {
-                console.log('appdata set', d)
-                promise.then(
-                    data => {
-                        data.setVariables();
-                    }
-                )
-            }
-        )
+function saveVariable() {
+    var key = document.getElementById("varinput").value
+    var value = document.getElementById("valinput").value
+    dictionary[key] = value
+
+    board.setAppData("variables", dictionary)
+    .then(d =>{
+        console.log('appdata set')
+        board.getAppData("variables")
+        .then(d => {
+            console.log('appdata set', d)
+            return 
+        })
     })
+    // console.log(data)
+    // console.log('board', board)
+    // board.setAppData("variables", data).then(d => {
+    //     var variableTable = board.getAppData("variables").then(
+    //         d => {
+    //             console.log('appdata set', d)
+    //             promise.then(
+    //                 data => {
+    //                     data.setVariables();
+    //                 }
+    //             )
+    //         }
+    //     )
+    // })
 }
