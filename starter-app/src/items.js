@@ -106,7 +106,7 @@ async function setVariables() {
             }
         }
     }
-
+    board.sync()
 }
 
 export { findVariables, setVariables };
