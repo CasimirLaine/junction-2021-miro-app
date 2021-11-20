@@ -45,8 +45,16 @@ function toggleVisibility(id, bool) {
 function test(){
     promise.then(
         data => {
-        console.log('Print')
-        console.log(data.findVariables())
+            data.findVariables().then(d => {    
+            console.log('Print', d)
+            return d})
+            .then(d =>{
+                    for(var i = 0; i < d.length; i ++){
+                        document.getElementById("varinput").value = d[i]
+                        appendToTable()
+                    }
+                }
+            )
         }
     )
 }
