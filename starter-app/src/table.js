@@ -22,7 +22,7 @@ window.appendToTable = function appendToTable(variableName, variableValue) {
     element.style.display = 'none'
     document.getElementById("varinput").value = variableName
     document.getElementById("valinput").value = variableValue
-    var editButton = '<button onclick="editVariable(' + id + ')" id="' + editId + '" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleInvisible(' + editId + ')">edit</button>'
+    var editButton = '<button onclick="editVariable(' + id + ')" id="' + editId + '" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisible(' + editId + ')">edit</button>'
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id=' + id + '>\
                             <td onmouseover="toggleVisible(\''+ editId + '\')" onmouseout="toggleInvisible(\'' + editId + '\')" scope="col">\
@@ -49,18 +49,21 @@ window.removeRow = function removeRow(id) {
 }
 
 window.toggleVisible = function toggleVisible(editId) {
-    let el = document.getElementById(editId);
-    el.style.display = "inline"
+    if(typeof editId === 'string'){
+        let el = document.getElementById(editId);
+        el.style.display = "inline"
+    } else {
+        let el = document.getElementById(editId.id);
+        el.style.display = "inline"
+    }
 }
 
 window.toggleInvisible = function toggleInvisible(editId) {
     if(typeof editId === 'string'){
         let el = document.getElementById(editId);
-        console.log(editId)
         el.style.display = "none"
     } else {
         let el = document.getElementById(editId.id);
-        console.log(editId.id)
         el.style.display = "none"
     }
 }
