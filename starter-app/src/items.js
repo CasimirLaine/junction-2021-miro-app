@@ -96,7 +96,8 @@ async function setVariables(variable) {
     var variables = await board.getAppData('variables');
     var widgetIds = widgetsWithVariable(variable, widgetVariables);
     var value = variables[variable];
-    if (value == null || value == undefined) {
+    console.log(value)
+    if (value == null || value == undefined || value == "") {
         return
     }
     for (var widgetId of widgetIds) {
