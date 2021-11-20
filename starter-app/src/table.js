@@ -91,6 +91,7 @@ function test() {
 
 function editVariable(id) {
     toggleVisibility("edit-field")
+    toggleVisibility('input-field')
     let valId = "val"+id
     let varId = "var"+id
 

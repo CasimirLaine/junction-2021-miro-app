@@ -29,11 +29,11 @@
           </tr>
         </thead>
         <tbody id="vtable-body">
-          <tr id="testRow1" scope="row">
-            <td id="vartestrow" onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)" onclick="toggleVisibility('edit-field')">edit</button></td>
+          <!-- <tr id="testRow1" scope="row">
+            <td id="vartestrow" onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)" onclick="toggleVisibility('edit-field'); toggleVisibility('input-field')">edit</button></td>
             <td id="valtestrow" scope="col">10</td>
             <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
@@ -58,7 +58,7 @@
       <!-- <div>value <input id="valinput" type="text" > </div> -->
 
       <div><button  class="float-right btn btn-secondary btn-sm" onclick="saveVariable(); appendToTable()">Add variable</button></div>
-      <div><button style="margin-right: 1em;"  class="float-right btn btn-secondary btn-sm" onclick="toggleVisibility('input-field')">Cancel</button></div>
+      <div><button style="margin-right: 1em;"  class="float-right btn btn-secondary btn-sm" onclick="toggleVisibility('edit-field'); toggleVisibility('b1')">Cancel</button></div>
     </div>
 
     <div id="edit-field" style="display:none;">
@@ -79,7 +79,7 @@
       </form>
 
       <div><button  class="float-right btn btn-secondary btn-sm" onclick="saveEdit()">Save</button></div>
-      <div><button style="margin-right: 1em;"  class="float-right btn btn-secondary btn-sm" onclick="toggleVisibility('edit-field')">Cancel</button></div>
+      <div><button style="margin-right: 1em;"  class="float-right btn btn-secondary btn-sm" onclick="toggleVisibility('edit-field'); toggleVisibility('b1')">Cancel</button></div>
     </div>
 
     <script type="module" src="/src/app.js"></script>
