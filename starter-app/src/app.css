@@ -34,3 +34,12 @@ td {
   max-width: 3em;
   overflow-x: hidden;
 }
+
+.editButton {
+  float: right;
+  display: none;
+}
+
+.editButton:hover {
+  display: inline;
+}

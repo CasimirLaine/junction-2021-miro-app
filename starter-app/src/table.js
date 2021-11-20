@@ -8,7 +8,7 @@ function appendToTable(){
     var button = document.getElementById("b1");
     button.style.display = 'inline'
     var element = document.getElementById("input-field");
-    element.style.display = 'None'
+    element.style.display = 'hidden'
 
     var variable = document.getElementById("varinput").value
     var value = document.getElementById("valinput").value
@@ -28,4 +28,16 @@ function showVariableForm(){
 
 function removeRow(id) {
     document.getElementById(id).remove();
+}
+
+function toggleVisibility(id, bool) {
+    let el = document.getElementById(id);
+    if(bool) {
+        el.style.display = "inline"
+    }
+    if(el.style.display === "none") {
+        el.style.display = "inline"
+    } else {
+        el.style.display = "none"
+    }
 }
