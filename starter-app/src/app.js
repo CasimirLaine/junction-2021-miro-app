@@ -1,3 +1,5 @@
+import { findVariables } from './items.js';
+
 const { board } = window.miro;
 
 async function init() {
@@ -7,5 +9,5 @@ async function init() {
 
   await board.viewport.zoomTo(stickyNote);
 }
-
+var variables = await findVariables()
 init();
