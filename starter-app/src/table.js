@@ -80,35 +80,6 @@ function test() {
     )
 }
 
-function editVariable(id, name, value) {
-    let table = document.getElementById('editVariableForm')
-    table.style.display = 'inline'
-    let valedit = document.getElementById("valedit")
-    let varedit = document.getElementById("varedit")
-    varedit.value = name
-    valedit.value = value
-}
-
-function closeEditVariable() {
-    let table = document.getElementById('editVariableForm')
-    table.style.display = 'none'
-    let valedit = document.getElementById("valedit")
-    let varedit = document.getElementById("varedit")
-    varedit.value = ''
-    valedit.value = ''
-}
-
-function saveEdit(id) {
-    //input fields
-    let valedit = document.getElementById("valedit")
-    let varedit = document.getElementById("varedit")
-    //variable table fields
-    let varElement = document.getElementById("var"+id)
-    let valElement = document.getElementById("var"+id)
-
-    varElement.innerHTML = varedit.innerHTML
-    valElement.innerHTML = valedit.innerHTML
-}
 
 function saveVariable() {
     var key = document.getElementById("varinput").value
