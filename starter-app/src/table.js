@@ -20,14 +20,14 @@ window.appendToTable = function appendToTable(){
     button.style.display = 'inline'
     var element = document.getElementById("input-field");
     element.style.display = 'none'
-
+    
     var variable = document.getElementById("varinput").value
     var value = document.getElementById("valinput").value
     document.getElementById("varinput").value = ""
     document.getElementById("valinput").value = ""
 
 
-    editButton = '<button onclick="editVariable('+id+', '+variable+','+value+')" id="' + editId+'" style="float:right; display:inline;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
+    let editButton = '<button onclick="editVariable('+id+', '+variable+','+value+')" id="' + editId+'" style="float:right; display:inline;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id='+id+'><td id="'+varId+'" onmouseover="toggleVisibility('+editId+')" onmouseout="toggleVisibility('+editId+')" scope="col">' + variable + " " + editButton +'</td><td id="'+valId+'>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
     data[variable] = value
