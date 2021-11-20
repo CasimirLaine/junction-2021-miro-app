@@ -1,5 +1,5 @@
 import { oldlace } from 'color-name'
-import { findVariables, setVariables } from './items.js'
+import { findVariables, setVariables, saveVariables, loadVariables } from './items.js'
 const { board } = window.miro
 let varBeingEdited
 
@@ -75,7 +75,7 @@ window.toggleInvisible = function toggleInvisible(editId) {
 
 window.createTable = async function createTable() {
     var variables = {}
-    var variableTable = window.variables
+    var variableTable = loadVariables()
     console.log(variableTable)
     for (variableName in variableTable) {
         variables[variableName] = variableTable[variableName]
@@ -89,9 +89,9 @@ window.createTable = async function createTable() {
             }
         }
     }
-    window.variables = variables
+    saveVariables(variables)
     console.log("Table created with values: ")
-    console.log(window.variables)
+    console.log(loadVariables())
     for (var variableName in variables) {
         appendToTable(variableName, variables[variableName])
     }
@@ -104,7 +104,7 @@ window.editVariable = function editVariable(id) {
 
     document.getElementById("varedit").value = id.id
     document.getElementById("varedit").disabled = "disabled"
-    document.getElementById("valedit").value = window.variables[id.id]
+    document.getElementById("valedit").value = loadVariables()[id.id]
 }
 
 window.saveEdit = function saveEdit() {
@@ -115,10 +115,10 @@ window.saveEdit = function saveEdit() {
     console.log(document.getElementById('val_' + newVariable))
     console.log('val_' +  newVariable.value)
     document.getElementById('val_' + newVariable.value).innerHTML = newValue.value
-    var dictionary = window.variables
+    var dictionary = loadVariables()
     dictionary[newVariable.value] = newValue.value
-    window.variables = dictionary
-    console.log(window.variables)
+    saveVariables(dictionary)
+    console.log(loadVariables())
     setVariables(newVariable.value)
     toggleInvisible("edit-field")
     toggleVisible('b1')
@@ -127,11 +127,11 @@ window.saveEdit = function saveEdit() {
 window.saveVariable = async function saveVariable() {
     var key = document.getElementById("varinput").value
     var value = document.getElementById("valinput").value
-    var dictionary = window.variables
+    var dictionary = loadVariables()
     appendToTable(key,value)
     console.log(dictionary)
     dictionary[key] = value
     console.log(dictionary)
-    window.variables = dictionary
+    saveVariables(dictionary)
     setVariables(key)
 }
