@@ -1,0 +1,1 @@
+import"./style.daf1e31c.js";const{board:a}=window.miro;!async function(){await a.setAppData("variables",{value1:"val1",value2:"val2"});const t=await a.getAppData("variables");console.log(t);const o=await a.createStickyNote({content:JSON.stringify(t)});console.log(o),await a.viewport.zoomTo(o)}();
