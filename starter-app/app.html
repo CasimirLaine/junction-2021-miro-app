@@ -15,24 +15,23 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="/src/app.css">
   </head>
-  <body>
-    <button onclick="console.log('output', test())">test</button>
+  <body onload="test()">
+    <!-- <button onclick="console.log('output', test())">test</button> --> 
     <div id="table-div">
       <table id="vtable" class="table table-hover table-dark">
         <thead>
           <tr scope="row">
             <th scope="col">Variable</th>
             <th scope="col">Value</th>
-            <th scope="col">✕</th>
+            <!-- <th scope="col">✕</th> -->
           </tr>
         </thead>
         <tbody id="vtable-body">
-          <!-- <tr id="testRow1" scope="row"> --> -->
-            <!-- <td onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)">edit</button></td> -->
-            <!-- <td scope="col">10</td> -->
-            <!-- <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td> -->
-          <!-- </tr> -->
-
+          <tr id="testRow1" scope="row">
+            <td id="vartestrow" onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)" onclick="editVariable('testRow1', 'test', 'test')">edit</button></td>
+            <td id="valtestrow" scope="col">10</td>
+            <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -52,7 +51,7 @@
           <td align="left" style="width:70%;"><input id="valedit" type="text" style="width: 100%;" name="last" /></td>
         </tr>
       </table>
-      <button  class="float-right btn btn-secondary btn-sm" onclick="saveEdit()">
+      <button  class="float-right btn btn-secondary btn-sm" onclick="saveEdit('testrow')">
         Save edit
         </button>
       <button style="margin-right:1em;"  class="float-right btn btn-secondary btn-sm" onclick="closeEditVariable()">

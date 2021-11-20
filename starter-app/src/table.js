@@ -31,7 +31,7 @@ window.appendToTable = function appendToTable(){
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id='+id+'><td onmouseover="toggleVisibility(\''+editId+'\')" onmouseout="toggleVisibility(\''+editId+'\')" scope="col">' + variable + " " + editButton +'</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
     data[variable] = value
-    saveVariables()
+    saveVariables(variable)
 }
 
 window.showVariableForm = function showVariableForm(){
@@ -99,8 +99,10 @@ window.closeEditVariable = function closeEditVariable() {
 }
 
 window.closeEditVariable = function saveEdit(id) {
+    //input fields
     let valedit = document.getElementById("valedit")
     let varedit = document.getElementById("varedit")
+    //variable table fields
     let varElement = document.getElementById("var"+id)
     let valElement = document.getElementById("var"+id)
 
@@ -117,7 +119,7 @@ window.saveVariables = function saveVariables() {
                 console.log('appdata set', d)
                 promise.then(
                     data => {
-                        data.setVariables();
+                        data.setVariables(variable);
                     }
                 )
             }
