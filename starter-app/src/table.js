@@ -106,12 +106,11 @@ function test() {
 function editVariable(id) {
     toggleVisible("edit-field")
     toggleInvisible('input-field')
-    toggleVisibility()
     let valId = "val"+id
     let varId = "var"+id
 
     varBeingEdited = [valId, varId]
-
+    console.log('varbeingedited', varBeingEdited)
     // let variable = document.getElementById(valId)
     // let value = document.getElementById(varId)
     // console.log(value, variable)
@@ -136,7 +135,8 @@ function saveEdit() {
     variable.innerHTML = newVariable.value
     value.innerHTML = newValue.value
 
-    toggleVisibility("edit-field")
+    toggleInvisible("edit-field")
+    toggleVisible('b1')
 
 }
 

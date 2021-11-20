@@ -54,8 +54,8 @@
       <!-- <div class="var"><p>variable</p> <input id="varinput" type="text"> </div> -->
       <!-- <div>value <input id="valinput" type="text" > </div> -->
 
-      <div><button  class="float-right btn btn-secondary btn-sm" onclick="saveVariable(); appendToTable()">Add variable</button></div>
-      <div><button style="margin-right: 1em;"  class="float-right btn btn-secondary btn-sm" onclick="toggleVisibility('edit-field'); toggleVisibility('b1')">Cancel</button></div>
+      <div><button  class="float-right btn btn-secondary btn-sm" onclick="appendToTable()">Add variable</button></div>
+      <div><button style="margin-right: 1em;"  class="float-right btn btn-secondary btn-sm" onclick="toggleInvisible('input-field'); toggleVisible('b1')">Cancel</button></div>
     </div>
 
     <div id="edit-field" style="display:none;">
@@ -76,7 +76,7 @@
       </form>
 
       <div><button  class="float-right btn btn-secondary btn-sm" onclick="saveEdit()">Save</button></div>
-      <div><button style="margin-right: 1em;"  class="float-right btn btn-secondary btn-sm" onclick="toggleVisibility('edit-field'); toggleVisibility('b1')">Cancel</button></div>
+      <div><button style="margin-right: 1em;"  class="float-right btn btn-secondary btn-sm" onclick="toggleInvisible('edit-field'); toggleVisible('b1')">Cancel</button></div>
     </div>
 
     <script type="module" src="/src/app.js"></script>
