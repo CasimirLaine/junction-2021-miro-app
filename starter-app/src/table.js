@@ -10,7 +10,12 @@ function printFunction() {
 
 function appendToTable(){
     id += 1
+    //editId is for edit button
     let editId = "edit" + id
+    //varId is for the <td> that contains variable name
+    let varId = "var" + id
+    // valId is for the <td> that ocntains value
+    let valId = "val" + id
     var button = document.getElementById("b1");
     button.style.display = 'inline'
     var element = document.getElementById("input-field");
@@ -22,9 +27,9 @@ function appendToTable(){
     document.getElementById("valinput").value = ""
 
 
-    editButton = '<button id="' + editId+'" style="float:right; display:inline;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
+    editButton = '<button onclick="editVariable('+id+', '+variable+','+value+')" id="' + editId+'" style="float:right; display:inline;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
     var element = document.getElementById("vtable-body")
-    element.innerHTML += '<tr id='+id+'><td onmouseover="toggleVisibility('+editId+')" onmouseout="toggleVisibility('+editId+')" scope="col">' + variable + " " + editButton +'</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
+    element.innerHTML += '<tr id='+id+'><td id="'+varId+'" onmouseover="toggleVisibility('+editId+')" onmouseout="toggleVisibility('+editId+')" scope="col">' + variable + " " + editButton +'</td><td id="'+valId+'>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
     data[variable] = value
     saveVariables()
 }
@@ -70,6 +75,34 @@ function test(){
             })
         }
     )
+}
+
+function editVariable(id, name, value) {
+    let table = document.getElementById('editVariableForm')
+    table.style.display = 'inline'
+    let valedit = document.getElementById("valedit")
+    let varedit = document.getElementById("varedit")
+    varedit.value = name
+    valedit.value = value
+}
+
+function closeEditVariable() {
+    let table = document.getElementById('editVariableForm')
+    table.style.display = 'none'
+    let valedit = document.getElementById("valedit")
+    let varedit = document.getElementById("varedit")
+    varedit.value = ''
+    valedit.value = ''
+}
+
+function saveEdit(id) {
+    let valedit = document.getElementById("valedit")
+    let varedit = document.getElementById("varedit")
+    let varElement = document.getElementById("var"+id)
+    let valElement = document.getElementById("var"+id)
+
+    varElement.innerHTML = varedit.innerHTML
+    valElement.innerHTML = valedit.innerHTML
 }
 
 function saveVariables() {
