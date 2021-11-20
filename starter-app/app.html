@@ -8,31 +8,108 @@
       href="https://unpkg.com/mirotone@2.0.0/dist/styles.css"
     />
     <link rel="stylesheet" href="/src/assets/style.css" />
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
     <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-    <div class="grid wrapper">
-      <div class="cs1 ce12">
-        <img src="/src/assets/congratulations.png" />
+    
+  <style type="text/css">
+    .var {
+      width: 100%;
+      
+      background-color: lightblue;
+    }
+
+    .var input {
+      height: 1.5em;
+      width: 70%;
+      border: 2px black;
+      border-radius: 4px;
+    }
+  </style>
+
+    <table id="vtable" class="table table-hover table-dark">
+      <thead>
+        <tr scope="row">
+          <th scope="col">Variable</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr scope="row">
+          <td scope="col">x</td>
+          <td scope="col">10</td>
+        </tr>
+        <tr scope="row">
+          <td scope="col">y</td>
+          <td scope="col">5</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <button id="b1" class="btn btn-secondary btn-sm" onclick="showVariableForm()">
+      Add new variable
+    </button>
+    
+    <div id="input-field" style="display:None">
+      <div class="ui labeled input">
+        <div class="ui label" style="text-align: right; display:inline-block;">
+          variable
+        </div>
+        <input id="varinput" type="text"  style="width:70%; border: 1px solid black; height: 80%;">
       </div>
-      <div class="cs1 ce12">
-        <h1>Congratulations!</h1>
-        <p>You've just created your first Miro app!</p>
-        <p>
-          To explore more and build your own app, see the Miro Developer
-          Platform documentation.
-        </p>
+     
+      <div class="ui labeled input" style="margin-bottom:15px">
+        <div class="ui label" style="text-align: right; display:inline-block;">
+          value
+        </div>
+        <input id="valinput" type="text"  style="width:70%; border: 1px solid black; height: 80%;">
       </div>
-      <div class="cs1 ce12">
-        <a
-          class="button button-primary"
-          target="_blank"
-          href="https://miro-ea.readme.io/docs"
-        >
-          Read the documentation
-        </a>
-      </div>
+
+      <!-- <div class="var"><p>variable</p> <input id="varinput" type="text"> </div> -->
+      <!-- <div>value <input id="valinput" type="text" > </div> -->
+
+      <div><button class="btn btn-secondary btn-sm" onclick="appendToTable()">Add variable</button></div>
     </div>
+
     <script type="module" src="/src/app.js"></script>
+    <script src="/src/table.js"></script>
   </body>
 </html>
+
+
+<!-- ################
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table> -->
