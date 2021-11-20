@@ -30,14 +30,9 @@
         </thead>
         <tbody id="vtable-body">
           <tr id="testRow1" scope="row">
-            <td onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="xbutton" onmouseover="toggleVisibility(edit, true)">edit</button></td>
+            <td onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)">edit</button></td>
             <td scope="col">10</td>
             <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td>
-          </tr>
-          <tr id="testRow2" scope="row">
-            <td scope="col">y</td>
-            <td scope="col">5</td>
-            <td scope="col"><button onclick="removeRow('testRow2')" class="xbutton">✕</button></td>
           </tr>
         </tbody>
       </table>
