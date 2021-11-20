@@ -97,8 +97,10 @@ function closeEditVariable() {
 }
 
 function saveEdit(id) {
+    //input fields
     let valedit = document.getElementById("valedit")
     let varedit = document.getElementById("varedit")
+    //variable table fields
     let varElement = document.getElementById("var"+id)
     let valElement = document.getElementById("var"+id)
 

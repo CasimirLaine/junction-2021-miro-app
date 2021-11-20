@@ -30,8 +30,8 @@
         </thead>
         <tbody id="vtable-body">
           <tr id="testRow1" scope="row">
-            <td onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)" onclick="editVariable('testRow1', 'test', 'test')">edit</button></td>
-            <td scope="col">10</td>
+            <td id="vartestrow" onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)" onclick="editVariable('testRow1', 'test', 'test')">edit</button></td>
+            <td id="valtestrow" scope="col">10</td>
             <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td>
           </tr>
         </tbody>
@@ -53,7 +53,7 @@
           <td align="left" style="width:70%;"><input id="valedit" type="text" style="width: 100%;" name="last" /></td>
         </tr>
       </table>
-      <button  class="float-right btn btn-secondary btn-sm" onclick="saveEdit()">
+      <button  class="float-right btn btn-secondary btn-sm" onclick="saveEdit('testrow')">
         Save edit
         </button>
       <button style="margin-right:1em;"  class="float-right btn btn-secondary btn-sm" onclick="closeEditVariable()">
