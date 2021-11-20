@@ -9,7 +9,7 @@ function appendToTable(){
     var button = document.getElementById("b1");
     button.style.display = 'inline'
     var element = document.getElementById("input-field");
-    element.style.display = 'hidden'
+    element.style.display = 'none'
 
     var variable = document.getElementById("varinput").value
     var value = document.getElementById("valinput").value
@@ -22,9 +22,9 @@ function appendToTable(){
 
 function showVariableForm(){
     var button = document.getElementById("b1");
-    button.style.display = 'None'
+    button.style.display = 'none'
     var element = document.getElementById("input-field");
-    element.style.display = 'inline-block'
+    element.style.display = 'inline'
 }
 
 function removeRow(id) {
