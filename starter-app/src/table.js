@@ -119,6 +119,7 @@ window.saveEdit = function saveEdit() {
     dictionary[newVariable.value] = newValue.value
     window.variables = dictionary
     console.log(window.variables)
+    setVariables(newVariable.value)
     toggleInvisible("edit-field")
     toggleVisible('b1')
 }
