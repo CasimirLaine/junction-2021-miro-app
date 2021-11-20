@@ -10,4 +10,5 @@ async function init() {
   await board.viewport.zoomTo(stickyNote);
 }
 var variables = await findVariables()
+console.log(variables)
 init();

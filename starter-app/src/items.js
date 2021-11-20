@@ -7,6 +7,26 @@ const itemTypes = {
         textFields: [
             'title', 'description'
         ]
+    },
+    image: {
+        textFields: [
+            'title', 'url'
+        ]
+    },
+    shape: {
+        textFields: [
+            'content'
+        ]
+    },
+    sticky_note: {
+        textFields: [
+            'content'
+        ]
+    },
+    text: {
+        textFields: [
+            'content'
+        ]
     }
 }
 
