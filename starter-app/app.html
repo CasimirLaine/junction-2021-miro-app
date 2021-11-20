@@ -17,8 +17,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="/src/app.css">
   </head>
-  <body onload="test()">
-    <!-- <button onclick="console.log('output', test())">test</button> --> 
+  <body onload="await createTable()">
     <div id="table-div">
       <table id="vtable" class="table table-hover table-dark">
         <thead>
@@ -37,6 +36,7 @@
         </tbody>
       </table>
     </div>
+    
     <button id="b1" class="float-right btn btn-secondary btn-sm" onclick="showVariableForm()">
       Add new variable
     </button>
@@ -84,7 +84,7 @@
     </div>
 
     <script type="module" src="/src/app.js"></script>
-    <script src="/src/table.js"></script>
+    <script type="moduele" src="/src/table.js"></script>
     <style ref></style>
   </body>
 </html>

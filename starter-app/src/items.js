@@ -86,7 +86,7 @@ function updateWidget(widget, variable, value) {
     }
     widget.width = width;
     widget.height = height;
-    widget.sync()
+    widget.sync();
 }
 
 async function setVariables(variable) {

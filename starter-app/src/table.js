@@ -1,54 +1,47 @@
-const promise = import('./items.js')
+import { findVariables, setVariables } from './items.js'
 const { board } = window.miro
-let id = 0
-let data = {}
-// dictionary contains saved variables
-var dictionary = {}
-let variableNames
 
-function printFunction() {
-    console.log("Print statement!");
-}
+const idPrefix = "id_"
+const varPrefix = "var_"
+const editPrefix = "edit_"
+const valPrefix = "val_"
 
-function appendToTable() {
-    id += 1
+windows.appendToTable = function appendToTable(variableName, variableValue) {
+    let id = idPrefix + variableName
     //editId is for edit button
-    let editId = "edit" + id
+    let editId = editPrefix + variableName
     //varId is for the <td> that contains variable name
-    let varId = "var" + id
+    let varId = varPrefix + variableName
     // valId is for the <td> that ocntains value
-    let valId = "val" + id
+    let valId = valPrefix + variableName
     var button = document.getElementById("b1");
     button.style.display = 'inline'
     var element = document.getElementById("input-field");
     element.style.display = 'none'
 
-    var variable = document.getElementById("varinput").value
-    var value = document.getElementById("valinput").value
-    document.getElementById("varinput").value = ""
-    document.getElementById("valinput").value = ""
+    document.getElementById("varinput").value = variableName
+    document.getElementById("valinput").value = variableValue
 
 
-    editButton = '<button id="' + editId+'" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
+    editButton = '<button id="' + editId + '" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
     var element = document.getElementById("vtable-body")
-    element.innerHTML += '<tr id='+id+'><td onmouseover="toggleVisibility(\''+editId+'\')" onmouseout="toggleVisibility(\''+editId+'\')" scope="col">' + variable + " " + editButton +'</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
-    data[variable] = value
+    element.innerHTML += '<tr id=' + id + '><td onmouseover="toggleVisibility(\'' + editId + '\')" onmouseout="toggleVisibility(\'' + editId + '\')" scope="col">' + variableName + " " + editButton + '</td><td>' + variableValue + '</td><td scope="col"><button onclick="removeRow(' + id + ')" class="xbutton">✕</button></td></tr>';
 }
 
 
-function showVariableForm() {
+window.showVariableForm = function showVariableForm() {
     var button = document.getElementById("b1");
     button.style.display = 'none'
     var element = document.getElementById("input-field");
     element.style.display = 'inline'
 }
 
-function removeRow(id) {
+window.removeRow = function removeRow(id) {
     document.getElementById(id).remove();
 }
 
-function toggleVisibility(id, bool) {
-    let el = document.getElementById(id);
+window.toggleVisibility = function toggleVisibility(editId, bool) {
+    let el = document.getElementById(editId);
     if (bool) {
         el.style.display = "inline"
     }
@@ -58,29 +51,27 @@ function toggleVisibility(id, bool) {
         el.style.display = "none"
     }
 }
-function test() {
-    promise.then(
-        data => {
-            data.findVariables().then(d => {
-                console.log('Print', d)
-                return d
-            })
-                .then(d => {
-                    for (var key in d) {
-                        if (d.hasOwnProperty(key)) {
-                            var arr = d[key]
-                            for (var i = 0; i < arr.length; i++) {
-                                document.getElementById("varinput").value = arr[i]
-                                appendToTable()
-                            }
-                        }
-                    }
-                })
+window.createTable = async function createTable() {
+    var variables = {}
+    var variableTable = await board.getAppData("variables")
+    for (variableName in variableTable) {
+        variables[variableName] = variableTable[variableName]
+    }
+    var widgetVariables = await findVariables()
+    for (var key in widgetVariables) {
+        var variableNames = widgetVariables[key]
+        for (variableName of variableNames) {
+            if (!(variableName in variables)) {
+                variables[variableName] = ""
+            }
         }
-    )
+    }
+    for (var variableName in variables) {
+        appendToTable(variableName, variables[variableName])
+    }
 }
 
-function editVariable(id, name, value) {
+window.editVariable = function editVariable(id, name, value) {
     let table = document.getElementById('editVariableForm')
     table.style.display = 'inline'
     let valedit = document.getElementById("valedit")
@@ -89,7 +80,7 @@ function editVariable(id, name, value) {
     valedit.value = value
 }
 
-function closeEditVariable() {
+window.closeEditVariable = function closeEditVariable() {
     let table = document.getElementById('editVariableForm')
     table.style.display = 'none'
     let valedit = document.getElementById("valedit")
@@ -98,30 +89,23 @@ function closeEditVariable() {
     valedit.value = ''
 }
 
-function saveEdit(id) {
+window.saveEdit = function saveEdit(id) {
     //input fields
     let valedit = document.getElementById("valedit")
     let varedit = document.getElementById("varedit")
     //variable table fields
-    let varElement = document.getElementById("var"+id)
-    let valElement = document.getElementById("var"+id)
+    let varElement = document.getElementById("var" + id)
+    let valElement = document.getElementById("var" + id)
 
     varElement.innerHTML = varedit.innerHTML
     valElement.innerHTML = valedit.innerHTML
 }
 
-function saveVariable() {
+window.saveVariable = async function saveVariable() {
     var key = document.getElementById("varinput").value
     var value = document.getElementById("valinput").value
+    var dictionary = await board.getAppData("variables")
     dictionary[key] = value
-
-    board.setAppData("variables", dictionary)
-    .then(d =>{
-        console.log('appdata set')
-        board.getAppData("variables")
-        .then(d => {
-            console.log('appdata set', d)
-            return 
-        })
-    })
+    await board.setAppData("variables", dictionary)
+    setVariables(key)
 }
