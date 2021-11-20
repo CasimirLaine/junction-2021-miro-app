@@ -4,8 +4,8 @@ const { board } = window.miro;
 
 async function init() {
   const data = {
-    value1: "val1",
-    value2: "val2"
+    variable: "variableName",
+    value: "variableValue"
   }
   await board.setAppData("variables", data)
   const appdata = await board.getAppData("variables")
