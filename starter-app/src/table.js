@@ -33,10 +33,6 @@ function appendToTable() {
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id='+id+'><td onmouseover="toggleVisibility(\''+editId+'\')" onmouseout="toggleVisibility(\''+editId+'\')" scope="col">' + variable + " " + editButton +'</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
     data[variable] = value
-<<<<<<< HEAD
-=======
-    saveVariables(variable)
->>>>>>> 377a986571a1d524fb29447bb3a9b638f2ab17bf
 }
 
 
