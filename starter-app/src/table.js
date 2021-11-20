@@ -31,7 +31,7 @@ function appendToTable() {
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id='+id+'><td onmouseover="toggleVisibility(\''+editId+'\')" onmouseout="toggleVisibility(\''+editId+'\')" scope="col">' + variable + " " + editButton +'</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
     data[variable] = value
-    saveVariables()
+    saveVariables(variable)
 }
 
 function showVariableForm() {
@@ -108,16 +108,14 @@ function saveEdit(id) {
     valElement.innerHTML = valedit.innerHTML
 }
 
-function saveVariables() {
-    console.log(data)
-    console.log('board', board)
+function saveVariables(variable) {
     board.setAppData("variables", data).then(d => {
         var variableTable = board.getAppData("variables").then(
             d => {
                 console.log('appdata set', d)
                 promise.then(
                     data => {
-                        data.setVariables();
+                        data.setVariables(variable);
                     }
                 )
             }
