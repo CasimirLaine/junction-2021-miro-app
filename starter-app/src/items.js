@@ -1,5 +1,6 @@
 const { board } = window.miro;
-const variableSign = "\$"
+const variableSign = "$"
+const escapedVariableSign = "\$"
 const regexPattern = "[" + variableSign + "]{1}[a-zA-Z0-9äöüÄÖÜ]+";
 
 const itemTypes = {
@@ -79,9 +80,13 @@ function widgetsWithVariable(variableName, widgetVariables) {
 function updateWidget(widget, variable, value) {
     console.log(widget.x, variable, value)
     var itemType = itemTypes[widget.type];
+    const width = widget.width;
+    const height = widget.height;
     for (var textField of itemType.textFields) {
-        widget[textField] = widget[textField].replace(variableSign + variable, value)
+        widget[textField] = widget[textField].replace(escapedVariableSign + variable, value)
     }
+    widget.width = width;
+    widget.height = height;
     widget.sync()
     console.log(widget, variable, value)
 }
@@ -91,6 +96,9 @@ async function setVariables(variable) {
     var variables = await board.getAppData('variables');
     var widgetIds = widgetsWithVariable(variable, widgetVariables);
     var value = variables[variable];
+    if (value == null || value == undefined) {
+        return
+    }
     for (var widgetId of widgetIds) {
         try {
             var widget = await board.getById(widgetId);
