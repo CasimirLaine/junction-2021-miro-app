@@ -85,15 +85,22 @@ function updateWidget(widget, variable, value) {
 }
 
 async function setVariables() {
+    console.log('setting variables')
     var widgetVariables = await findVariables();
-    var variables = board.getAppData('variables');
+    console.log("Printing widgets");
+    console.log(widgetVariables);
+    var variables = await board.getAppData('variables');
+    console.log("Printing variables");
+    console.log(variables);
     for (var key in variables) {
+        console.log(key + " variable set");
         var widgetIds = widgetsWithVariable(key, widgetVariables);
         for (var widgetId of widgetIds) {
             var value = variables[key];
             try {
                 var widget = await board.getById(widgetId);
-                updateWidget(widget, variable, value);
+                console.log(widgetId + " widget set");
+                updateWidget(widget, key, value);
             } catch (error) {
                 console.log(error);
             }
