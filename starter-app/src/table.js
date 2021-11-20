@@ -64,7 +64,7 @@ window.toggleInvisible = function toggleInvisible(id){
 }
 
 window.toggleVisibility = function toggleVisibility(id, bool) {
-    let el = document.getElementById(id);
+    let el = document.getElementById(id.id);
     console.log('toggle', el)
     if (bool) {
         el.style.display = "inline"
