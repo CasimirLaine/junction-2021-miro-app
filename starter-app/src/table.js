@@ -23,10 +23,10 @@ window.appendToTable = function appendToTable(variableName, variableValue) {
     element.style.display = 'none'
     document.getElementById("varinput").value = variableName
     document.getElementById("valinput").value = variableValue
-    var editButton = '<button onclick="editVariable(' + id + ')" id="' + editId + '" style="float:right; display:inline;" class="editButton xbutton" onmouseover="toggleVisible(' + editId + ')">edit</button>'
+    var editButton = '<button onclick="editVariable(' + id + ')" id="' + editId + '" style="float:right; display:inline;" class="editButton xbutton"">edit</button>'
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id=' + id + '>\
-                            <td onmouseover="toggleVisible(\''+ editId + '\')" onmouseout="toggleInvisible(\'' + editId + '\')" scope="col">\
+                            <td onmouseover="toggleVisible(\''+ editId + '\')" scope="col">\
                                 <div style="margin: 0;" id="'+ varId + '">' + variableName + "</div> " + '</td><td id="' + valId + '">' + variableValue + '\
                             </td>\
                             <td>' + editButton + '</td>\
@@ -135,4 +135,15 @@ window.saveVariable = async function saveVariable() {
     console.log(dictionary)
     saveVariables(dictionary)
     setVariables(key)
+}
+
+export function periodic() {
+    var variables = window.variables;
+    console.log(variables)
+    if(variables !== undefined && variables !== null){
+        variables.forEach(element => {
+            console.log(element)
+        });
+    }
+    console.log("asddd")
 }
