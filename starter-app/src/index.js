@@ -22,7 +22,10 @@ const options = {
 };
 
  setInterval(async function(){ 
+   console.log(window)
+   console.log(window.localStorage)
    console.log("indes.js")
     periodic();
-    }, 3000);
+
+    }, 30000000);
 init();

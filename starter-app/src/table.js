@@ -1,7 +1,6 @@
-import { oldlace } from 'color-name'
+
 import { findVariables, setVariables } from './items.js'
 const { board } = window.miro
-let varBeingEdited
 
 const idPrefix = ""
 const varPrefix = "var_"
@@ -110,10 +109,6 @@ window.editVariable = function editVariable(id) {
 window.saveEdit = function saveEdit() {
     let newVariable = document.getElementById("varedit")
     let newValue = document.getElementById("valedit")
-    console.log(newValue, newVariable)
-    console.log(newValue.value, newVariable.value)
-    console.log(document.getElementById('val_' + newVariable))
-    console.log('val_' +  newVariable.value)
     document.getElementById('val_' + newVariable.value).innerHTML = newValue.value
     var dictionary = window.variables
     dictionary[newVariable.value] = newValue.value
@@ -133,12 +128,15 @@ window.saveVariable = async function saveVariable() {
     dictionary[key] = value
     console.log(dictionary)
     window.variables = dictionary
+    window.localStorage.setItem(key, value)
+    console.log(window.localStorage)
     setVariables(key)
 }
 
 export function periodic() {
     var variables = window.variables;
     console.log(variables)
+    console.log(window)
     if(variables !== undefined && variables !== null){
         variables.forEach(element => {
             console.log(element)

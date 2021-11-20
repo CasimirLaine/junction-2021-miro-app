@@ -1,0 +1,1 @@
+import{p as o}from"./table.fab52be6.js";import"./vendor.05a6ae7d.js";setInterval((async function(){console.log(window),console.log("indes.js"),o()}),3e3),async function(){await miro.board.ui.on("icon:click",(async()=>{await miro.board.ui.openPanel({pageUrl:"app.html"})}))}();

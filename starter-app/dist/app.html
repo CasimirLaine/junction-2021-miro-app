@@ -14,19 +14,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       
-    <script type="module" crossorigin src="/assets/app.c6f11dc8.js"></script>
-    <link rel="modulepreload" href="/assets/table.57cd6f05.js">
+    <script type="module" crossorigin src="/assets/app.464b0db6.js"></script>
+    <link rel="modulepreload" href="/assets/table.fab52be6.js">
     <link rel="stylesheet" href="/assets/table.116a5b33.css">
-    <link rel="stylesheet" href="/assets/app.08d4a0af.css">
+    <link rel="stylesheet" href="/assets/app.28d73b28.css">
   </head>
-  <body onload="test()">
-    <!-- <button onclick="console.log('output', test())">test</button> --> 
+  <body onload="createTable()">
     <div id="table-div">
       <table id="vtable" class="table table-hover table-dark">
         <thead>
           <tr scope="row">
-            <th scope="col">Variable</th>
-            <th scope="col">Value</th>
+            <th style="width: 33%;" scope="col">Variable</th>
+            <th style="width: 33%;" scope="col">Value</th>
+            <th style="width: 16%;" scope="col">Edit</th>
+            <th style="width: 16%;" scope="col">Del</th>
             <!-- <th scope="col">✕</th> -->
           </tr>
         </thead>
@@ -34,6 +35,7 @@
         </tbody>
       </table>
     </div>
+    
     <button id="b1" class="float-right btn btn-secondary btn-sm" onclick="showVariableForm()">
       Add new variable
     </button>
@@ -51,10 +53,7 @@
         </table>
       </form>
 
-      <!-- <div class="var"><p>variable</p> <input id="varinput" type="text"> </div> -->
-      <!-- <div>value <input id="valinput" type="text" > </div> -->
-
-      <div><button  class="float-right btn btn-secondary btn-sm" onclick="appendToTable()">Add variable</button></div>
+      <div><button  class="float-right btn btn-secondary btn-sm" onclick="saveVariable()">Add variable</button></div>
       <div><button style="margin-right: 1em;"  class="float-right btn btn-secondary btn-sm" onclick="toggleInvisible('input-field'); toggleVisible('b1')">Cancel</button></div>
     </div>
 
