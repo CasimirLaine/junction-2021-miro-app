@@ -1,8 +1,9 @@
+import { oldlace } from 'color-name'
 import { findVariables, setVariables } from './items.js'
 const { board } = window.miro
 let varBeingEdited
 
-const idPrefix = "id_"
+const idPrefix = ""
 const varPrefix = "var_"
 const editPrefix = "edit_"
 const valPrefix = "val_"
@@ -95,29 +96,24 @@ window.createTable = async function createTable() {
 window.editVariable = function editVariable(id) {
     toggleVisible("edit-field")
     toggleInvisible('input-field')
-    let valId = "val" + id
-    let varId = "var" + id
+    toggleInvisible('b1')
 
-    varBeingEdited = [valId, varId]
-    console.log('varbeingedited', varBeingEdited)
+    document.getElementById("varedit").value = id.id
+    document.getElementById("valedit").value = window.variables[id.id]
 }
 
 window.saveEdit = function saveEdit() {
-    let valId = varBeingEdited[0]
-    let varId = varBeingEdited[1]
-
-    let variable = document.getElementById(varId)
-    let value = document.getElementById(valId)
-
     let newVariable = document.getElementById("varedit")
     let newValue = document.getElementById("valedit")
     console.log(newValue, newVariable)
-
     console.log(newValue.value, newVariable.value)
-
-    variable.innerHTML = newVariable.value
-    value.innerHTML = newValue.value
-
+    console.log(document.getElementById('val_' + newVariable))
+    console.log('val_' +  newVariable.value)
+    document.getElementById('val_' + newVariable.value).innerHTML = newValue.value
+    var dictionary = window.variables
+    dictionary[newVariable.value] = newValue.value
+    window.variables = dictionary
+    console.log(window.variables)
     toggleInvisible("edit-field")
     toggleVisible('b1')
 }
