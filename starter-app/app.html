@@ -19,28 +19,29 @@
   </head>
   <body>
   
-
-    <table id="vtable" class="table table-hover table-dark">
-      <thead>
-        <tr scope="row">
-          <th scope="col">Variable</th>
-          <th scope="col">Value</th>
-          <th scope="col">✕</th>
-        </tr>
-      </thead>
-      <tbody id="vtable-body">
-        <tr id="testRow1" scope="row">
-          <td scope="col">x</td>
-          <td scope="col">10</td>
-          <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td>
-        </tr>
-        <tr id="testRow2" scope="row">
-          <td scope="col">y</td>
-          <td scope="col">5</td>
-          <td scope="col"><button onclick="removeRow('testRow2')" class="xbutton">✕</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="table-div">
+      <table id="vtable" class="table table-hover table-dark">
+        <thead>
+          <tr scope="row">
+            <th scope="col">Variable</th>
+            <th scope="col">Value</th>
+            <th scope="col">✕</th>
+          </tr>
+        </thead>
+        <tbody id="vtable-body">
+          <tr id="testRow1" scope="row">
+            <td scope="col">x</td>
+            <td scope="col">10</td>
+            <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td>
+          </tr>
+          <tr id="testRow2" scope="row">
+            <td scope="col">y</td>
+            <td scope="col">5</td>
+            <td scope="col"><button onclick="removeRow('testRow2')" class="xbutton">✕</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <button id="b1" class="float-right btn btn-secondary btn-sm" onclick="showVariableForm()">
       Add new variable
     </button>
