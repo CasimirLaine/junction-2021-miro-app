@@ -18,6 +18,7 @@ async function init() {
   await board.viewport.zoomTo(stickyNote);
 }
 async function variables() {
+
   var variables = await findVariables()
   console.log(variables)
 }
@@ -25,7 +26,3 @@ variables();
 init();
 const table = document.getElementById('vtable');
 console.log(table)
-export function test() {
-  console.log(findVariables())
-}
-

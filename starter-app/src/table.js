@@ -1,17 +1,20 @@
 const promise = import('./items.js')
+const { board } = window.miro
 let id = 0
-export function printFunction() {
+let data = {}
+let variableNames
+
+window.printFunction =  function printFunction() {
     console.log("Print statement!");
 }
 
-export function appendToTable(){
+window.appendToTable = function appendToTable(){
     id += 1
     var button = document.getElementById("b1");
     button.style.display = 'inline'
     var element = document.getElementById("input-field");
-    element.style.display = 'hidden'
+    element.style.display = 'none'
 
-    
     var variable = document.getElementById("varinput").value
     var value = document.getElementById("valinput").value
     document.getElementById("varinput").value = ""
@@ -19,20 +22,22 @@ export function appendToTable(){
 
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id='+id+'><td>' + variable + '</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
+    data[variable] = value
+    saveVariables()
 }
 
-export function showVariableForm(){
+window.showVariableForm = function showVariableForm(){
     var button = document.getElementById("b1");
-    button.style.display = 'None'
+    button.style.display = 'none'
     var element = document.getElementById("input-field");
-    element.style.display = 'inline-block'
+    element.style.display = 'inline'
 }
 
-export function removeRow(id) {
+window.removeRow = function removeRow(id) {
     document.getElementById(id).remove();
 }
 
-export function toggleVisibility(id, bool) {
+window.toggleVisibility = function toggleVisibility(id, bool) {
     let el = document.getElementById(id);
     if(bool) {
         el.style.display = "inline"
@@ -43,11 +48,35 @@ export function toggleVisibility(id, bool) {
         el.style.display = "none"
     }
 }
-export function test(){
+window.test = function test(){
     promise.then(
         data => {
-        console.log('Print')
-        console.log(data.findVariables())
+            data.findVariables().then(d => {
+            console.log('Print', d)
+            return d})
+            .then(d =>{
+                for (var key in d) {
+                    if (d.hasOwnProperty(key)) {
+                        var arr = d[key]
+                        for (var i = 0; i < arr.length; i++) {
+                            document.getElementById("varinput").value = arr[i]
+                            appendToTable()
+                        }
+                    }
+                }
+            })
         }
     )
+}
+
+window.saveVariables = function saveVariables() {
+    console.log(data)
+    console.log('board', board)
+    board.setAppData("variables", data).then(d=>{
+        var appdata = board.getAppData("variables").then(
+            d => {
+                console.log('appdata set', d)
+            }
+        )
+    })
 }

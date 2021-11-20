@@ -8,19 +8,15 @@
       href="https://unpkg.com/mirotone@2.0.0/dist/styles.css"
     />
     <link rel="stylesheet" href="/src/assets/style.css" />
-    
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/app.css">
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="/src/app.css">
   </head>
   <body>
-    <script type="modude" scr="./scr/table.js"></script>
-    <script type="module" src="./src/app.js"></script>
-    <button onclick="test();">test</button>
+    <button onclick="console.log('output', test())">test</button>
     <div id="table-div">
       <table id="vtable" class="table table-hover table-dark">
         <thead>
@@ -49,26 +45,27 @@
     </button>
     
     <div id="input-field" style="display:None">
-      <form>
-        <table class="table table-hover table-dark">
-          <tr>
-            <td align="right">variable</td>
-            <td align="left" style="width:70%;"><input id="varinput" type="text" style="width: 100%;" name="first" /></td>
-          </tr>
-          <tr>
-            <td align="right">value</td>
-            <td align="left" style="width:70%;"><input id="valinput" type="text" style="width: 100%;" name="last" /></td>
-          </tr>
-        </table>
-      </form>
-      
+<form>
+  <table class="table table-hover table-dark">
+    <tr>
+      <td align="right">variable</td>
+      <td align="left" style="width:70%;"><input id="varinput" type="text" style="width: 100%;" name="first" /></td>
+    </tr>
+    <tr>
+      <td align="right">value</td>
+      <td align="left" style="width:70%;"><input id="valinput" type="text" style="width: 100%;" name="last" /></td>
+    </tr>
+  </table>
+</form>
+
       <!-- <div class="var"><p>variable</p> <input id="varinput" type="text"> </div> -->
       <!-- <div>value <input id="valinput" type="text" > </div> -->
-      
+
       <div><button  class="float-right btn btn-secondary btn-sm" onclick="appendToTable()">Add variable</button></div>
     </div>
-    
-    
+
+    <script type="module" src="/src/app.js"></script>
+    <script async type="module" src="/src/table.js"></script>
     <style ref></style>
   </body>
 </html>

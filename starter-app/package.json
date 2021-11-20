@@ -10,5 +10,8 @@
   "devDependencies": {
     "vite": "2.5.0",
     "vite-plugin-mkcert": "1.5.1"
+  },
+  "dependencies": {
+    "nodejs": "^0.0.0"
   }
 }
