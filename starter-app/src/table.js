@@ -108,14 +108,14 @@ function saveEdit() {
     let valId = varBeingEdited[0]
     let varId = varBeingEdited[1]
 
-    let variable = document.getElementById(valId)
-    let value = document.getElementById(varId)
+    let variable = document.getElementById(varId)
+    let value = document.getElementById(valId)
 
     let newVariable = document.getElementById("varedit")
     let newValue = document.getElementById("valedit")
     console.log(newValue, newVariable)
 
-    console.log(newValue.innerHTML, newVariable.innerHTML)
+    console.log(newValue.value, newVariable.value)
 
     variable.innerHTML = newVariable.value
     value.innerHTML = newValue.value
