@@ -8,6 +8,7 @@ const editPrefix = "edit_"
 const valPrefix = "val_"
 
 window.appendToTable = function appendToTable(variableName, variableValue) {
+    console.log(variableName, variableValue)
     let id = idPrefix + variableName
     //editId is for edit button
     let editId = editPrefix + variableName
@@ -21,7 +22,7 @@ window.appendToTable = function appendToTable(variableName, variableValue) {
     element.style.display = 'none'
     document.getElementById("varinput").value = variableName
     document.getElementById("valinput").value = variableValue
-    var editButton = '<button onclick="editVariable(' + id + ')" id="' + editId + '" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
+    var editButton = '<button onclick="editVariable(' + id + ')" id="' + editId + '" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleInvisible(' + editId + ')">edit</button>'
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id=' + id + '>\
                             <td onmouseover="toggleVisible(\''+ editId + '\')" onmouseout="toggleInvisible(\'' + editId + '\')" scope="col">\
@@ -53,8 +54,15 @@ window.toggleVisible = function toggleVisible(editId) {
 }
 
 window.toggleInvisible = function toggleInvisible(editId) {
-    let el = document.getElementById(editId);
-    el.style.display = "none"
+    if(typeof editId === 'string'){
+        let el = document.getElementById(editId);
+        console.log(editId)
+        el.style.display = "none"
+    } else {
+        let el = document.getElementById(editId.id);
+        console.log(editId.id)
+        el.style.display = "none"
+    }
 }
 
 window.createTable = async function createTable() {
@@ -115,6 +123,7 @@ window.saveVariable = async function saveVariable() {
     var key = document.getElementById("varinput").value
     var value = document.getElementById("valinput").value
     var dictionary = window.variables
+    appendToTable(key,value)
     console.log(dictionary)
     dictionary[key] = value
     console.log(dictionary)
