@@ -18,17 +18,18 @@ const options = {
     }
 };
 
-
 setInterval(async function(){ 
   const Appdata = await board.getAppData("variables")
   console.log(Appdata)
-
+  /*
   axios.request(options).then(function (response) {
+    console.log("Hoi")
     console.log(response.data);
     console.log(response.data.data.map(value => value.data))
   }).catch(function (error) {
     console.error(error);
   });
+  */
 }, 3000);
 
 init();

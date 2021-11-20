@@ -49,7 +49,7 @@ function findVariablesInObject(item, itemType) {
     return variables;
 }
 
-async function findVariables() {
+export async function findVariables() {
     var variables = new Array();
     for (var itemType in itemTypes) {
         let boardItems = await board.get({
@@ -61,4 +61,3 @@ async function findVariables() {
     }
     return variables;
 }
-export { findVariables };

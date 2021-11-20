@@ -10,6 +10,7 @@ function appendToTable(){
     var element = document.getElementById("input-field");
     element.style.display = 'hidden'
 
+    
     var variable = document.getElementById("varinput").value
     var value = document.getElementById("valinput").value
     document.getElementById("varinput").value = ""

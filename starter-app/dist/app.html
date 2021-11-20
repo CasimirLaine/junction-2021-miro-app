@@ -8,34 +8,71 @@
       href="https://unpkg.com/mirotone@2.0.0/dist/styles.css"
     />
     
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
     <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
-    <script type="module" crossorigin src="/assets/app.360ba058.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    
+    <script src="/src/table.js"></script>
+    <script type="module" crossorigin src="/assets/app.c35a4320.js"></script>
     <link rel="modulepreload" href="/assets/style.daf1e31c.js">
     <link rel="stylesheet" href="/assets/style.640b71a8.css">
+    <link rel="stylesheet" href="/assets/app.50dae993.css">
   </head>
   <body>
-    <div class="grid wrapper">
-      <div class="cs1 ce12">
-        <img src="/assets/congratulations.f3485c3b.png" />
-      </div>
-      <div class="cs1 ce12">
-        <h1>Hello!</h1>
-        <p>You've just created your first Miro app!</p>
-        <p>
-          To explore more and build your own app, see the Miro Developer
-          Platform documentation.
-        </p>
-      </div>
-      <div class="cs1 ce12">
-        <a
-          class="button button-primary"
-          target="_blank"
-          href="https://miro-ea.readme.io/docs"
-        >
-          Read the documentation
-        </a>
-      </div>
+    
+    <div id="table-div">
+      <table id="vtable" class="table table-hover table-dark">
+        <thead>
+          <tr scope="row">
+            <th scope="col">Variable</th>
+            <th scope="col">Value</th>
+            <th scope="col">✕</th>
+          </tr>
+        </thead>
+        <tbody id="vtable-body">
+          <tr id="testRow1" scope="row">
+            <td onmouseover="toggleVisibility('edit')" onmouseleave="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="xbutton" onmouseover="toggleVisibility(edit, true)">edit</button></td>
+            <td scope="col">10</td>
+            <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td>
+          </tr>
+          <tr id="testRow2" scope="row">
+            <td scope="col">y</td>
+            <td scope="col">5</td>
+            <td scope="col"><button onclick="removeRow('testRow2')" class="xbutton">✕</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button id="b1" class="float-right btn btn-secondary btn-sm" onclick="showVariableForm()">
+      Add new variable
+    </button>
+    
+    <div id="input-field" style="display:None">
+      <form>
+        <table class="table table-hover table-dark">
+          <tr>
+            <td align="right">variable</td>
+            <td align="left" style="width:70%;"><input id="varinput" type="text" style="width: 100%;" name="first" /></td>
+          </tr>
+          <tr>
+            <td align="right">value</td>
+            <td align="left" style="width:70%;"><input id="valinput" type="text" style="width: 100%;" name="last" /></td>
+          </tr>
+        </table>
+      </form>
+      
+      <!-- <div class="var"><p>variable</p> <input id="varinput" type="text"> </div> -->
+      <!-- <div>value <input id="valinput" type="text" > </div> -->
+      
+      <div><button  class="float-right btn btn-secondary btn-sm" onclick="appendToTable()">Add variable</button></div>
     </div>
     
+    
+    <style ref></style>
   </body>
 </html>
