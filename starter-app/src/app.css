@@ -28,3 +28,13 @@ body {
   border: 2px black;
   border-radius: 4px;
 }
+
+.xbutton{
+  background: transparent; 
+  color:white;
+  opacity: .8;
+}
+
+.xbutton:hover{
+  opacity: 1;
+}
