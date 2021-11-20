@@ -54,8 +54,19 @@ function removeRow(id) {
     document.getElementById(id).remove();
 }
 
+function toggleVisible(id){
+    let el = document.getElementById(id);
+    el.style.display = "inline"
+}
+
+function toggleInvisible(id){
+    let el = document.getElementById(id);
+    el.style.display = "none"
+}
+
 function toggleVisibility(id, bool) {
     let el = document.getElementById(id);
+    console.log('toggle', el)
     if (bool) {
         el.style.display = "inline"
     }
@@ -90,8 +101,9 @@ function test() {
 }
 
 function editVariable(id) {
-    toggleVisibility("edit-field")
-    toggleVisibility('input-field')
+    toggleVisible("edit-field")
+    toggleInvisible('input-field')
+    toggleVisibility()
     let valId = "val"+id
     let varId = "var"+id
 
