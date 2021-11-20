@@ -110,16 +110,16 @@ window.closeEditVariable = function saveEdit(id) {
     valElement.innerHTML = valedit.innerHTML
 }
 
-window.saveVariables = function saveVariables() {
+window.saveVariables = function saveVariables(variable) {
     console.log(data)
     console.log('board', board)
     board.setAppData("variables", data).then(d => {
         var variableTable = board.getAppData("variables").then(
             d => {
                 console.log('appdata set', d)
-                promise.then(
-                    data => {
-                        data.setVariables(variable);
+                    promise.then(
+                        data => {
+                            data.setVariables(variable);
                     }
                 )
             }
