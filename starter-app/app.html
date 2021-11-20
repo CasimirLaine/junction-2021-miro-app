@@ -26,11 +26,6 @@
           </tr>
         </thead>
         <tbody id="vtable-body">
-          <tr id="testRow1" scope="row">
-            <td id="vartestrow" onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(edit, true)" onclick="editVariable('testRow1', 'test', 'test')">edit</button></td>
-            <td id="valtestrow" scope="col">10</td>
-            <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td>
-          </tr>
         </tbody>
       </table>
     </div>
@@ -78,7 +73,7 @@
       <!-- <div class="var"><p>variable</p> <input id="varinput" type="text"> </div> -->
       <!-- <div>value <input id="valinput" type="text" > </div> -->
 
-      <div><button  class="float-right btn btn-secondary btn-sm" onclick="saveVariable(); appendToTable()">Add variable</button></div>
+      <div><button  class="float-right btn btn-secondary btn-sm" onclick="saveVariable();">Add variable</button></div>
     </div>
 
     <script type="module" src="/src/app.js"></script>

@@ -66,6 +66,7 @@ window.createTable = async function createTable() {
             }
         }
     }
+    await board.setAppData("variables", variables)
     for (var variableName in variables) {
         appendToTable(variableName, variables[variableName])
     }
@@ -106,6 +107,7 @@ window.saveVariable = async function saveVariable() {
     var value = document.getElementById("valinput").value
     var dictionary = await board.getAppData("variables")
     dictionary[key] = value
+    console.log(dictionary)
     await board.setAppData("variables", dictionary)
     setVariables(key)
 }
