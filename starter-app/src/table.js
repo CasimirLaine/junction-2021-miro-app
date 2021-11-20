@@ -4,7 +4,7 @@ let id = 0
 let data = {}
 // dictionary contains saved variables
 var dictionary = {}
-let variableNames
+let varBeingEdited
 
 window.printFunction =  function printFunction() {
     console.log("Print statement!");
@@ -29,9 +29,16 @@ window.appendToTable = function appendToTable(){
     document.getElementById("valinput").value = ""
 
 
-    let editButton = '<button id="' + editId+'" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
+    let editButton = '<button onclick="editVariable('+id+')" id="' + editId+'" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
     var element = document.getElementById("vtable-body")
-    element.innerHTML += '<tr id='+id+'><td onmouseover="toggleVisibility(\''+editId+'\')" onmouseout="toggleVisibility(\''+editId+'\')" scope="col">' + variable + " " + editButton +'</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
+    element.innerHTML += '<tr id='+id+'>\
+                            <td onmouseover="toggleVisible(\''+editId+'\')" onmouseout="toggleInvisible(\''+editId+'\')" scope="col">\
+                                <div style="margin: 0;" id="'+varId+'">' + variable + "</div> " + editButton +'</td><td id="'+valId+'">' + value + '\
+                            </td>\
+                            <td scope="col">\
+                                <button onclick="removeRow('+id+')" class="xbutton">✕</button>\
+                            </td>\
+                        </tr>';
     data[variable] = value
 }
 
@@ -46,14 +53,24 @@ window.removeRow = function removeRow(id) {
     document.getElementById(id).remove();
 }
 
-window.toggleVisibility = function toggleVisibility(id, bool) {
-
+window.toggleVisible = function toggleVisible(id){
     let el = document.getElementById(id);
-    if (bool && el.style) {
+    el.style.display = "inline"
+}
+
+window.toggleInvisible = function toggleInvisible(id){
+    let el = document.getElementById(id);
+    el.style.display = "none"
+}
+
+window.toggleVisibility = function toggleVisibility(id, bool) {
+    let el = document.getElementById(id);
+    console.log('toggle', el)
+    if (bool) {
         el.style.display = "inline"
     }
-
-    if (el.style && el.style.display === "none") {
+    
+    if (el.style.display === "none") {
         el.style.display = "inline"
     } else {
         el.style.display = "none"
@@ -81,34 +98,41 @@ window.test = function test(){
     )
 }
 
-window.editVariable = function editVariable(id, name, value) {
-    let table = document.getElementById('editVariableForm')
-    table.style.display = 'inline'
-    let valedit = document.getElementById("valedit")
-    let varedit = document.getElementById("varedit")
-    varedit.value = name
-    valedit.value = value
+window.editVariable = function editVariable(id) {
+    toggleVisible("edit-field")
+    toggleInvisible('input-field')
+    let valId = "val"+id
+    let varId = "var"+id
+
+    varBeingEdited = [valId, varId]
+    console.log('varbeingedited', varBeingEdited)
+    // let variable = document.getElementById(valId)
+    // let value = document.getElementById(varId)
+    // console.log(value, variable)
+    // console.log(value.innerHTML, variable.innerHTML)
+
+
 }
 
-window.closeEditVariable = function closeEditVariable() {
-    let table = document.getElementById('editVariableForm')
-    table.style.display = 'none'
-    let valedit = document.getElementById("valedit")
-    let varedit = document.getElementById("varedit")
-    varedit.value = ''
-    valedit.value = ''
-}
+window.saveEdit = function saveEdit() {
+    let valId = varBeingEdited[0]
+    let varId = varBeingEdited[1]
 
-window.closeEditVariable = function saveEdit(id) {
-    //input fields
-    let valedit = document.getElementById("valedit")
-    let varedit = document.getElementById("varedit")
-    //variable table fields
-    let varElement = document.getElementById("var"+id)
-    let valElement = document.getElementById("var"+id)
+    let variable = document.getElementById(varId)
+    let value = document.getElementById(valId)
 
-    varElement.innerHTML = varedit.innerHTML
-    valElement.innerHTML = valedit.innerHTML
+    let newVariable = document.getElementById("varedit")
+    let newValue = document.getElementById("valedit")
+    console.log(newValue, newVariable)
+
+    console.log(newValue.value, newVariable.value)
+
+    variable.innerHTML = newVariable.value
+    value.innerHTML = newValue.value
+
+    toggleInvisible("edit-field")
+    toggleVisible('b1')
+
 }
 
 
