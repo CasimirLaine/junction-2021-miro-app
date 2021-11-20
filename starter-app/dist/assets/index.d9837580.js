@@ -1,1 +1,0 @@
-import{_ as a}from"./table.beb3c1a6.js";import"./vendor.05a6ae7d.js";const{board:o}=window.miro;setInterval((async function(){const a=await o.getAppData("variables");console.log(a)}),3e3),async function(){await miro.board.ui.on("icon:click",(async()=>{await miro.board.ui.openPanel({pageUrl:"app.html"})}))}(),a((()=>import("./items.f4800f10.js")),[]);

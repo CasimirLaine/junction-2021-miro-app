@@ -1,0 +1,1 @@
+import"./table.097b3783.js";import{findVariables as a}from"./items.ee7c4149.js";const{board:o}=window.miro;!async function(){var o=await a();console.log(o)}(),async function(){console.log("board in app.js",o),await o.setAppData("variables",{});const a=await o.getAppData("variables");console.log("appdata",a)}();
