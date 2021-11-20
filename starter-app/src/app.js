@@ -1,9 +1,10 @@
 const { board } = window.miro;
 
 async function init() {
-  var variables = await board.getAppData("variables");
+  var variables = window.variables.variables;
   if (variables == null || variables == undefined || !variables) {
-    await board.setAppData("variables", {})
+    console.log("Inited app data with empty variable table.")
+    window.variables = {}
   }
 }
 init();

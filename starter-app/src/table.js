@@ -55,7 +55,8 @@ window.toggleVisibility = function toggleVisibility(editId, bool) {
 }
 window.createTable = async function createTable() {
     var variables = {}
-    var variableTable = await board.getAppData("variables")
+    var variableTable = window.variables
+    console.log(variableTable)
     for (variableName in variableTable) {
         variables[variableName] = variableTable[variableName]
     }
@@ -68,7 +69,9 @@ window.createTable = async function createTable() {
             }
         }
     }
-    await board.setAppData("variables", variables)
+    window.variables = variables
+    console.log("Table created with values: ")
+    console.log(window.variables)
     for (var variableName in variables) {
         appendToTable(variableName, variables[variableName])
     }
@@ -107,9 +110,10 @@ window.saveEdit = function saveEdit(id) {
 window.saveVariable = async function saveVariable() {
     var key = document.getElementById("varinput").value
     var value = document.getElementById("valinput").value
-    var dictionary = await board.getAppData("variables")
+    var dictionary = window.variables
+    console.log(dictionary)
     dictionary[key] = value
     console.log(dictionary)
-    await board.setAppData("variables", dictionary)
+    window.variables = dictionary
     setVariables(key)
 }

@@ -91,7 +91,7 @@ function updateWidget(widget, variable, value) {
 
 async function setVariables(variable) {
     var widgetVariables = await findVariables();
-    var variables = await board.getAppData('variables');
+    var variables = window.variables;
     var widgetIds = widgetsWithVariable(variable, widgetVariables);
     var value = variables[variable];
     if (value == null || value == undefined) {
