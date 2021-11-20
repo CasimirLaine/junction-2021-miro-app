@@ -48,13 +48,17 @@ function test(){
             data.findVariables().then(d => {    
             console.log('Print', d)
             return d})
-            .then(d =>{
-                    for(var i = 0; i < d.length; i ++){
-                        document.getElementById("varinput").value = d[i]
-                        appendToTable()
+            .then(d => {
+                for (var key in d) {
+                    if (d.hasOwnProperty(key)) {
+                        var arr = d[key]
+                        for(var i = 0; i < arr.length; i ++){
+                            document.getElementById("varinput").value = arr[i]
+                            appendToTable()
+                        }
                     }
                 }
-            )
+            })
         }
     )
 }
