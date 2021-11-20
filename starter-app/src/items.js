@@ -90,6 +90,8 @@ async function updateWidget(widget, variable, value) {
     await widget.sync();
 }
 
+
+
 async function setVariables(variable) {
     var widgetVariables = await findVariables();
     var variables = window.variables;
