@@ -1,9 +1,5 @@
 const promise = import('./items.js')
-const board = window.miro
 let id = 0
-let data = {}
-let variableNames
-
 function printFunction() {
     console.log("Print statement!");
 }
@@ -22,8 +18,6 @@ function appendToTable(){
 
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id='+id+'><td>' + variable + '</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
-    data[variable] = value
-    saveVariables()
 }
 
 function showVariableForm(){
@@ -51,7 +45,7 @@ function toggleVisibility(id, bool) {
 function test(){
     promise.then(
         data => {
-            data.findVariables().then(d => {
+            data.findVariables().then(d => {    
             console.log('Print', d)
             return d})
             .then(d => {
@@ -67,11 +61,4 @@ function test(){
             })
         }
     )
-}
-
-function saveVariables() {
-    console.log(data)
-    // await board.setAppData("variables", data)
-    // const appdata = await board.getAppData("variables")
-    // console.log(appdata)
 }
