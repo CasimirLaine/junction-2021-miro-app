@@ -22,6 +22,11 @@
     body {
       background-color: black;
     }
+
+    .float-right {
+      float: right;
+    }
+
     .var {
       width: 100%;
       
@@ -54,7 +59,7 @@
         </tr>
       </tbody>
     </table>
-    <button id="b1" class="btn btn-secondary btn-sm" onclick="showVariableForm()">
+    <button id="b1" class="float-right btn btn-secondary btn-sm" onclick="showVariableForm()">
       Add new variable
     </button>
     
@@ -75,7 +80,7 @@
       <!-- <div class="var"><p>variable</p> <input id="varinput" type="text"> </div> -->
       <!-- <div>value <input id="valinput" type="text" > </div> -->
 
-      <div><button class="btn btn-secondary btn-sm" onclick="appendToTable()">Add variable</button></div>
+      <div><button  class="float-right btn btn-secondary btn-sm" onclick="appendToTable()">Add variable</button></div>
     </div>
 
     <script type="module" src="/src/app.js"></script>
