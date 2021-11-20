@@ -16,15 +16,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
-    
-    <script src="/src/table.js"></script>
-    <script type="module" crossorigin src="/assets/app.c35a4320.js"></script>
-    <link rel="modulepreload" href="/assets/style.daf1e31c.js">
-    <link rel="stylesheet" href="/assets/style.640b71a8.css">
+    <script type="module" crossorigin src="/assets/app.a05e2482.js"></script>
+    <link rel="modulepreload" href="/assets/preload-helper.717546fd.js">
+    <link rel="modulepreload" href="/assets/items.b324bc18.js">
+    <link rel="stylesheet" href="/assets/preload-helper.01e6a5a3.css">
     <link rel="stylesheet" href="/assets/app.50dae993.css">
   </head>
   <body>
+    <script type="modude" scr="./scr/table.js"></script>
     
+    <button onclick="test();">test</button>
     <div id="table-div">
       <table id="vtable" class="table table-hover table-dark">
         <thead>
@@ -36,7 +37,7 @@
         </thead>
         <tbody id="vtable-body">
           <tr id="testRow1" scope="row">
-            <td onmouseover="toggleVisibility('edit')" onmouseleave="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="xbutton" onmouseover="toggleVisibility(edit, true)">edit</button></td>
+            <td onmouseover="toggleVisibility('edit')" onmouseout="toggleVisibility('edit')" scope="col">x<button id="edit" style="float:right; display:none;" class="xbutton" onmouseover="toggleVisibility(edit, true)">edit</button></td>
             <td scope="col">10</td>
             <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td>
           </tr>

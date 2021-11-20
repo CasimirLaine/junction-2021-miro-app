@@ -1,5 +1,6 @@
 import axios from 'axios'
 const { board } = window.miro;
+import * as table from './table'
 
 async function init() {
   await miro.board.ui.on("icon:click", async () => {

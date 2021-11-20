@@ -2,15 +2,16 @@ import { findVariables } from "./items.js";
 const { board } = window.miro;
 
 async function init() {
+  const variable = "variable1"
   const data = {
-    value1: "val1",
+    variable: "val1",
     value2: "val2"
   }
   await board.setAppData("variables", data)
   const appdata = await board.getAppData("variables")
   console.log(appdata)
-    const stickyNote = await board.createStickyNote({
-    content: "Hello, World from Ray, ornot, is it !",
+  const stickyNote = await board.createStickyNote({
+    content: "Hello, from prod",
   });
   console.log(stickyNote)
 
@@ -24,7 +25,7 @@ variables();
 init();
 const table = document.getElementById('vtable');
 console.log(table)
-function test() {
+export function test() {
   console.log(findVariables())
 }
 

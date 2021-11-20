@@ -1,10 +1,10 @@
 const promise = import('./items.js')
 let id = 0
-function printFunction() {
+export function printFunction() {
     console.log("Print statement!");
 }
 
-function appendToTable(){
+export function appendToTable(){
     id += 1
     var button = document.getElementById("b1");
     button.style.display = 'inline'
@@ -21,18 +21,18 @@ function appendToTable(){
     element.innerHTML += '<tr id='+id+'><td>' + variable + '</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
 }
 
-function showVariableForm(){
+export function showVariableForm(){
     var button = document.getElementById("b1");
     button.style.display = 'None'
     var element = document.getElementById("input-field");
     element.style.display = 'inline-block'
 }
 
-function removeRow(id) {
+export function removeRow(id) {
     document.getElementById(id).remove();
 }
 
-function toggleVisibility(id, bool) {
+export function toggleVisibility(id, bool) {
     let el = document.getElementById(id);
     if(bool) {
         el.style.display = "inline"
@@ -43,7 +43,7 @@ function toggleVisibility(id, bool) {
         el.style.display = "none"
     }
 }
-function test(){
+export function test(){
     promise.then(
         data => {
         console.log('Print')
