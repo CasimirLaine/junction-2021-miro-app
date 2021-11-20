@@ -34,23 +34,46 @@
             <!-- <td scope="col">10</td> -->
             <!-- <td scope="col"><button onclick="removeRow('testRow1')" class="xbutton">✕</button></td> -->
           <!-- </tr> -->
+
         </tbody>
       </table>
     </div>
     <button id="b1" class="float-right btn btn-secondary btn-sm" onclick="showVariableForm()">
       Add new variable
     </button>
-    
+    <!-- EDIT VARIABLE FORM -->
+    <div id="editVariableForm">
+    <form >
+      <table class="table table-hover table-dark">
+        <tr>
+          <td align="right">variable</td>
+          <td align="left" style="width:70%;"><input id="varedit" type="text" style="width: 100%;" name="first" /></td>
+        </tr>
+        <tr>
+          <td align="right">value</td>
+          <td align="left" style="width:70%;"><input id="valedit" type="text" style="width: 100%;" name="last" /></td>
+        </tr>
+      </table>
+      <button  class="float-right btn btn-secondary btn-sm" onclick="saveEdit()">
+        Save edit
+        </button>
+      <button style="margin-right:1em;"  class="float-right btn btn-secondary btn-sm" onclick="closeEditVariable()">
+        Cancel edit
+        </button>
+      </form>
+    </div>
+    <!-- /EDIT VARIABLE FORM -->
+
     <div id="input-field" style="display:None">
 <form>
   <table class="table table-hover table-dark">
     <tr>
       <td align="right">variable</td>
-      <td align="left" style="width:70%;"><input id="varinput" type="text" style="width: 100%;" name="first" /></td>
+      <td align="left" style="width:70%;"><input id="varedit" type="text" style="width: 100%;" name="first" /></td>
     </tr>
     <tr>
       <td align="right">value</td>
-      <td align="left" style="width:70%;"><input id="valinput" type="text" style="width: 100%;" name="last" /></td>
+      <td align="left" style="width:70%;"><input id="valedit" type="text" style="width: 100%;" name="last" /></td>
     </tr>
   </table>
 </form>
