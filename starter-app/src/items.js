@@ -77,7 +77,7 @@ function widgetsWithVariable(variableName, widgetVariables) {
     return widgetIds;
 }
 
-function updateWidget(widget, variable, value) {
+async function updateWidget(widget, variable, value) {
     var itemType = itemTypes[widget.type];
     const width = widget.width;
     const height = widget.height;
@@ -86,7 +86,8 @@ function updateWidget(widget, variable, value) {
     }
     widget.width = width;
     widget.height = height;
-    widget.sync();
+    
+    await widget.sync();
 }
 
 async function setVariables(variable) {

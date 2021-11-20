@@ -45,8 +45,12 @@ window.showVariableForm = function showVariableForm() {
     element.style.display = 'inline'
 }
 
-window.removeRow = function removeRow(id) {
-    document.getElementById(id).remove();
+window.removeRow = function removeRow(id) {    
+    if(typeof editId === 'string'){
+        document.getElementById(id).remove();
+    } else {
+        document.getElementById(id.id).remove();
+    }
 }
 
 window.toggleVisible = function toggleVisible(editId) {
@@ -99,6 +103,7 @@ window.editVariable = function editVariable(id) {
     toggleInvisible('b1')
 
     document.getElementById("varedit").value = id.id
+    document.getElementById("varedit").disabled = "disabled"
     document.getElementById("valedit").value = window.variables[id.id]
 }
 
