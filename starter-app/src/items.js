@@ -102,4 +102,4 @@ async function setVariables() {
 
 }
 
-export { findVariables };
+export { findVariables, setVariables };
