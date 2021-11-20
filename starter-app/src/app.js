@@ -24,5 +24,7 @@ console.log(variables)
 init();
 const table = document.getElementById('vtable');
 console.log(table)
-
+function test() {
+  console.log(findVariables())
+}
 
