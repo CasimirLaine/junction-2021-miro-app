@@ -1,3 +1,4 @@
+const promise = import('./items.js')
 let id = 0
 function printFunction() {
     console.log("Print statement!");
@@ -41,4 +42,12 @@ function toggleVisibility(id, bool) {
     } else {
         el.style.display = "none"
     }
+}
+function test(){
+    promise.then(
+        data => {
+        console.log('Print')
+        console.log(data.findVariables())
+        }
+    )
 }
