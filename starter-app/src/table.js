@@ -22,9 +22,9 @@ function appendToTable(){
     document.getElementById("valinput").value = ""
 
 
-    editButton = '<button id="' + editId+'" style="float:right; display:inline;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
+    editButton = '<button id="' + editId+'" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
     var element = document.getElementById("vtable-body")
-    element.innerHTML += '<tr id='+id+'><td onmouseover="toggleVisibility('+editId+')" onmouseout="toggleVisibility('+editId+')" scope="col">' + variable + " " + editButton +'</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
+    element.innerHTML += '<tr id='+id+'><td onmouseover="toggleVisibility(\''+editId+'\')" onmouseout="toggleVisibility(\''+editId+'\')" scope="col">' + variable + " " + editButton +'</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
     data[variable] = value
     saveVariables()
 }
