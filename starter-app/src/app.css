@@ -38,6 +38,9 @@ td {
 .editButton {
   float: right;
   display: none;
+  background: transparent; 
+  color:white;
+  opacity: .8;
 }
 
 .editButton:hover {

@@ -4,12 +4,17 @@ let id = 0
 let data = {}
 let variableNames
 
+<<<<<<< HEAD
 window.printFunction =  function printFunction() {
+=======
+function printFunction() {
+>>>>>>> main
     console.log("Print statement!");
 }
 
 window.appendToTable = function appendToTable(){
     id += 1
+    let editId = "edit" + id
     var button = document.getElementById("b1");
     button.style.display = 'inline'
     var element = document.getElementById("input-field");
@@ -20,8 +25,14 @@ window.appendToTable = function appendToTable(){
     document.getElementById("varinput").value = ""
     document.getElementById("valinput").value = ""
 
+
+    editButton = '<button id="' + editId+'" style="float:right; display:inline;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
     var element = document.getElementById("vtable-body")
+<<<<<<< HEAD
     element.innerHTML += '<tr id='+id+'><td>' + variable + '</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
+=======
+    element.innerHTML += '<tr id='+id+'><td onmouseover="toggleVisibility('+editId+')" onmouseout="toggleVisibility('+editId+')" scope="col">' + variable + " " + editButton +'</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
+>>>>>>> main
     data[variable] = value
     saveVariables()
 }
@@ -69,12 +80,20 @@ window.test = function test(){
     )
 }
 
+<<<<<<< HEAD
 window.saveVariables = function saveVariables() {
+=======
+function saveVariables() {
+>>>>>>> main
     console.log(data)
     console.log('board', board)
     board.setAppData("variables", data).then(d=>{
         var appdata = board.getAppData("variables").then(
+<<<<<<< HEAD
             d => {
+=======
+            d=> {
+>>>>>>> main
                 console.log('appdata set', d)
             }
         )
