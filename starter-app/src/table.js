@@ -32,7 +32,7 @@ function appendToTable() {
     editButton = '<button onclick="editVariable('+id+')" id="' + editId+'" style="float:right; display:none;" class="editButton xbutton" onmouseover="toggleVisibility(' + editId + ', true)">edit</button>'
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id='+id+'>\
-                            <td onmouseover="toggleVisibility(\''+editId+'\')" onmouseout="toggleVisibility(\''+editId+'\')" scope="col">\
+                            <td onmouseover="toggleVisible(\''+editId+'\')" onmouseout="toggleInvisible(\''+editId+'\')" scope="col">\
                                 <div style="margin: 0;" id="'+varId+'">' + variable + "</div> " + editButton +'</td><td id="'+valId+'">' + value + '\
                             </td>\
                             <td scope="col">\
@@ -103,12 +103,11 @@ function test() {
 function editVariable(id) {
     toggleVisible("edit-field")
     toggleInvisible('input-field')
-    toggleVisibility()
     let valId = "val"+id
     let varId = "var"+id
 
     varBeingEdited = [valId, varId]
-
+    console.log('varbeingedited', varBeingEdited)
     // let variable = document.getElementById(valId)
     // let value = document.getElementById(varId)
     // console.log(value, variable)
@@ -133,7 +132,8 @@ function saveEdit() {
     variable.innerHTML = newVariable.value
     value.innerHTML = newValue.value
 
-    toggleVisibility("edit-field")
+    toggleInvisible("edit-field")
+    toggleVisible('b1')
 
 }
 
