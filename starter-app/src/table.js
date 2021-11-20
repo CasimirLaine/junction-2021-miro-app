@@ -2,6 +2,8 @@ const promise = import('./items.js')
 const { board } = window.miro
 let id = 0
 let data = {}
+// dictionary contains saved variables
+var dictionary = {}
 let variableNames
 
 window.printFunction =  function printFunction() {
@@ -31,7 +33,6 @@ window.appendToTable = function appendToTable(){
     var element = document.getElementById("vtable-body")
     element.innerHTML += '<tr id='+id+'><td onmouseover="toggleVisibility(\''+editId+'\')" onmouseout="toggleVisibility(\''+editId+'\')" scope="col">' + variable + " " + editButton +'</td><td>' + value + '</td><td scope="col"><button onclick="removeRow('+id+')" class="xbutton">✕</button></td></tr>';
     data[variable] = value
-    saveVariables(variable)
 }
 
 window.showVariableForm = function showVariableForm(){
@@ -110,19 +111,19 @@ window.closeEditVariable = function saveEdit(id) {
     valElement.innerHTML = valedit.innerHTML
 }
 
+
 window.saveVariables = function saveVariables(variable) {
-    console.log(data)
-    console.log('board', board)
-    board.setAppData("variables", data).then(d => {
-        var variableTable = board.getAppData("variables").then(
-            d => {
-                console.log('appdata set', d)
-                    promise.then(
-                        data => {
-                            data.setVariables(variable);
-                    }
-                )
-            }
-        )
+            var key = document.getElementById("varinput").value
+    var value = document.getElementById("valinput").value
+    dictionary[key] = value
+
+    board.setAppData("variables", dictionary)
+    .then(d =>{
+        console.log('appdata set')
+        board.getAppData("variables")
+        .then(d => {
+            console.log('appdata set', d)
+            return 
+        })
     })
 }
