@@ -112,8 +112,8 @@ window.closeEditVariable = function saveEdit(id) {
 }
 
 
-window.saveVariables = function saveVariables(variable) {
-            var key = document.getElementById("varinput").value
+window.saveVariable = function saveVariable() {
+    var key = document.getElementById("varinput").value
     var value = document.getElementById("valinput").value
     dictionary[key] = value
 
