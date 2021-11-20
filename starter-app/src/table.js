@@ -6,7 +6,7 @@ const varPrefix = "var_"
 const editPrefix = "edit_"
 const valPrefix = "val_"
 
-windows.appendToTable = function appendToTable(variableName, variableValue) {
+window.appendToTable = function appendToTable(variableName, variableValue) {
     let id = idPrefix + variableName
     //editId is for edit button
     let editId = editPrefix + variableName
