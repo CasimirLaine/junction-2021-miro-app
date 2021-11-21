@@ -1,4 +1,4 @@
-Introduction
+# Introduction
 
 Are you tired of writing the same texts to your Miro widgets over and over again? So are we! Miro templates are nice and super effective, but they are missing a key feature regarding the content. We bring you a solution in a form of variables! While boosting the productivity of daily Miro users, it also makes editing a large board super easy. 
 
