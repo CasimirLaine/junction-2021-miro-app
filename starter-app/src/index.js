@@ -22,8 +22,6 @@ const options = {
 };
 
  setInterval(async function(){ 
-   console.log(window.localStorage)
     periodic();
-
     }, 3000);
 init();

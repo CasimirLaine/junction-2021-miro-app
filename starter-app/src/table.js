@@ -45,11 +45,29 @@ window.showVariableForm = function showVariableForm() {
 }
 
 window.removeRow = function removeRow(id) {    
+    console.log(id)
+    
     if(typeof editId === 'string'){
-        window.localStorage.removeItem(id)
+
+        var variables = loadVariables()
+        const filtered = Object.keys(variables)
+        .filter(key => key == id)
+        .reduce((obj, key) => {
+          obj[key] = variables[key];
+          return obj;
+        }, {});
+        saveVariables(filtered)
         document.getElementById(id).remove();
     } else {
-        window.localStorage.removeItem(id.id)
+        var variables = loadVariables()
+
+        const filtered = Object.keys(variables)
+        .filter(key => key == id.id)
+        .reduce((obj, key) => {
+          obj[key] = variables[key];
+          return obj;
+        }, {});
+        saveVariables(filtered)
         document.getElementById(id.id).remove();
     }
 }
@@ -135,9 +153,10 @@ window.saveVariable = async function saveVariable() {
 }
 
 export function periodic() {
-    var variables = window.localStorage;
+    var variables = loadVariables()
+
     if(variables !== undefined && variables !== null){
-        Object.keys(localStorage).forEach(function(key){
+        Object.keys(variables).forEach(function(key){
             setVariables(key)
          });
     }
